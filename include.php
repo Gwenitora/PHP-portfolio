@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 function headerPage() {
   ?>
   <!DOCTYPE html>
@@ -32,6 +34,7 @@ function headerPage() {
           <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
           <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i
                 class="material-icons left">group</i>Team</a> </li>
+          <li><a href="action/action.php" class="modal-trigger">login</a></li>
         </ul>
 
         <!-- Dropdown menu -->
