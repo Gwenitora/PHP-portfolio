@@ -20,16 +20,16 @@ function sidenavClose(){
 
 function changeButton() {
   if ($('.carousel-item.gb').hasClass('active')) {
-    $('.btn-change').prop('href', 'gang-beasts.html');
+    $('.btn-change').prop('href', 'gang-beasts.php');
   };
   if ($('.carousel-item.am').hasClass('active')) {
-    $('.btn-change').prop('href', 'a_mazing.html');
+    $('.btn-change').prop('href', 'a_mazing.php');
   };
   if ($('.carousel-item.rl').hasClass('active')) {
-    $('.btn-change').prop('href', 'rocket-league.html');
+    $('.btn-change').prop('href', 'rocket-league.php');
   };
   if ($('.carousel-item.pm').hasClass('active')) {
-    $('.btn-change').prop('href', 'pacman.html');
+    $('.btn-change').prop('href', 'pacman.php');
   };
 };
 setInterval(changeButton, 10);
@@ -53,7 +53,7 @@ $('.carousel').click(function() {
 });
 
 $('.parallax-container').click(function() {
-    document.location.href="../html/easter-egg-01.html";
+    document.location.href="../html/easter-egg-01.php";
 });
 
 var durationRick;
@@ -87,7 +87,7 @@ $(new Audio('../misc/nyan-cat.mp3')).on("canplay", function () {
 let openedWindow;
 
 function openWindow() {
-  openedWindow = window.open('../index.html');
+  openedWindow = window.open('../index.php');
 }
 
 function closeOpenedWindow() {
