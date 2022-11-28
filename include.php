@@ -32,9 +32,8 @@ function headerPage() {
         <ul class="right hide-on-med-and-down">
           <li><a href="./index.php"><i class="material-icons left">home</i>Home</a></li>
           <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
-          <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i
-                class="material-icons left">group</i>Team</a> </li>
-          <li><a href="action/action.php" class="modal-trigger">login</a></li>
+          <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i class="material-icons left">group</i>Team</a> </li>
+          <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>login</a></li>
         </ul>
 
         <!-- Dropdown menu -->
@@ -54,6 +53,7 @@ function headerPage() {
       <li><a href="" onclick="sidenavClose()" class="white-text"><i class="material-icons left">home</i>Home</a> </li>
       <li><a href="#team" onclick="sidenavClose()" class="white-text"><i class="material-icons left">phone</i>Team</a></li>
       <li><a href="#contact" onclick="sidenavClose()" class="modal-trigger white-text"><i class="material-icons left">group</i>Contact</a></li>
+      <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>login</a></li>
     </ul>
 
 
@@ -81,6 +81,32 @@ function headerPage() {
             <i class="material-icons prefix">textsms</i>
             <textarea id="message-input" class="message materialize-textarea"></textarea>
             <label for="message-input">Message</label>
+          </div>
+        </div>
+        <div class="modal-close color perso-2 center" id="suprise">
+          <button class="btn waves-effect waves-light">
+            <span>Envoyer</span>
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Login -->
+    <div class="container">
+      <div class="modal color perso-2 border-radius" id="login">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input type="text" id="pseudo-input" class="name">
+            <label for="pseudo-input">NOM Prénom</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">password</i>
+            <input type="password" id="password-input" class="password">
+            <label for="password-input">Password</label>
           </div>
         </div>
         <div class="modal-close color perso-2 center" id="suprise">

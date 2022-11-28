@@ -130,15 +130,13 @@ a.btn:hover {
  --myColor2:red; 
 }
 
-.input-field input[type=text]:focus + label,
-.input-field input[type=email]:focus + label,
+.input-field input:focus + label,
 .input-field textarea:focus + label,
 .input-field .prefix.active {
   color: orange !important;
 }
 
-.input-field input[type=text]:focus,
-.input-field input[type=email]:focus,
+.input-field input:focus,
 .input-field textarea:focus {
   border-bottom: 1px solid orange !important;
   box-shadow: 0 1px 0 0 orange !important;
