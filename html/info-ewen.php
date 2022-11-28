@@ -24,16 +24,16 @@
             <i class="material-icons">menu</i>  
           </a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="../index.html"><i class="material-icons left">home</i>Home</a> </li>
+            <li><a href="../index.php"><i class="material-icons left">home</i>Home</a> </li>
             <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
             <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i class="material-icons left">group</i>Team</a> </li>
           </ul>
 
         <!-- Dropdown menu -->
         <ul id="dropdown-team" class="dropdown-content color perso-2">
-          <li><a href="../index.html#team" class="white-text">Team</a></li>
-          <li><a href="info-gwendal.html" class="white-text">Gwendal</a></li>
-          <li><a href="info-ewen.html" class="white-text">Ewen</a></li>
+          <li><a href="../index.php#team" class="white-text">Team</a></li>
+          <li><a href="info-gwendal.php" class="white-text">Gwendal</a></li>
+          <li><a href="info-ewen.php" class="white-text">Ewen</a></li>
         </ul>
         </div>
       </nav>
@@ -43,9 +43,9 @@
       </div>
     </header>
     <ul class="sidenav color perso-2" id="mobile-links">
-      <li><a href="../index.html" onclick="sidenavClose()" class="white-text"><i class="material-icons left">home</i>Home</a> </li>
-      <li><a href="../index.html#contact" onclick="sidenavClose()" class="modal-trigger white-text"><i class="material-icons left">phone</i>Contact</a> </li>
-      <li><a href="../index.html#team" onclick="sidenavClose()" class="white-text"><i class="material-icons left">group</i>Team</a> </li>
+      <li><a href="../index.php" onclick="sidenavClose()" class="white-text"><i class="material-icons left">home</i>Home</a> </li>
+      <li><a href="../index.php#contact" onclick="sidenavClose()" class="modal-trigger white-text"><i class="material-icons left">phone</i>Contact</a> </li>
+      <li><a href="../index.php#team" onclick="sidenavClose()" class="white-text"><i class="material-icons left">group</i>Team</a> </li>
     </ul>
 
     <!-- Contact -->
@@ -96,7 +96,7 @@
               <a href="https://www.linkedin.com/in/ewen-beaufils-1a9043252/" class="btn-floating linkedin animate__animated animate__bounceInUp" target="_blank" rel="nofollow">
                 <i class="fa-brands fa-linkedin"></i>
               </a>
-              <a href="https://projectframeworkcssjs.williamchapron.repl.co/index.html#" class="btn-floating linkedin animate__animated animate__bounceInUp" target="_blank" rel="nofollow">
+              <a href="https://projectframeworkcssjs.williamchapron.repl.co/index.php#" class="btn-floating linkedin animate__animated animate__bounceInUp" target="_blank" rel="nofollow">
                 <i class="fa-brands fa-discord"></i>
               </a>
             </div>

@@ -25,6 +25,6 @@ $('.dont-click').click(function() {
   $(".bubble-content").text(messages[count]);
   count += 1;
   if (count == messages.length + 1) {
-    document.location.href="../index.html";
+    document.location.href="../index.php";
   }
 });
