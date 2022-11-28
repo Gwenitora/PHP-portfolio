@@ -28,7 +28,7 @@ function headerPage() {
           <i class="material-icons">menu</i>
         </a>
         <ul class="right hide-on-med-and-down">
-          <li><a href=""><i class="material-icons left">home</i>Home</a></li>
+          <li><a href="./index.php"><i class="material-icons left">home</i>Home</a></li>
           <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
           <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i
                 class="material-icons left">group</i>Team</a> </li>
@@ -37,8 +37,8 @@ function headerPage() {
         <!-- Dropdown menu -->
         <ul id="dropdown-team" class="dropdown-content color perso-2">
           <li><a href="#team" class="white-text">Team</a></li>
-          <li><a href="html/info-gwendal.php" class="white-text">Gwendal</a></li>
-          <li><a href="html/info-ewen.php" class="white-text">Ewen</a></li>
+          <li><a href="./info-gwendal.php" class="white-text">Gwendal</a></li>
+          <li><a href="./info-ewen.php" class="white-text">Ewen</a></li>
         </ul>
       </div>
     </nav>

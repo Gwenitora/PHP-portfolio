@@ -53,7 +53,7 @@ $('.carousel').click(function() {
 });
 
 $('.parallax-container').click(function() {
-    document.location.href="../html/easter-egg-01.php";
+    document.location.href="./easter-egg-01.php";
 });
 
 var durationRick;
