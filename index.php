@@ -1,10 +1,7 @@
 <?php
 include 'include.php';
+headerPage();
 ?>
-
-  <?php
-  headerPage();
-  ?>
 
   <!-- Team -->
   <div class="section" id="team">
@@ -62,5 +59,5 @@ include 'include.php';
     </div>
   </div>
 
-  <?php
-  footerPage();
+<?php
+footerPage();
