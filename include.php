@@ -37,8 +37,8 @@ function headerPage() {
         <!-- Dropdown menu -->
         <ul id="dropdown-team" class="dropdown-content color perso-2">
           <li><a href="#team" class="white-text">Team</a></li>
-          <li><a href="html/info-gwendal.html" class="white-text">Gwendal</a></li>
-          <li><a href="html/info-ewen.html" class="white-text">Ewen</a></li>
+          <li><a href="html/info-gwendal.php" class="white-text">Gwendal</a></li>
+          <li><a href="html/info-ewen.php" class="white-text">Ewen</a></li>
         </ul>
       </div>
     </nav>
