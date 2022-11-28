@@ -13,7 +13,7 @@ headerPage();
           <div class="card color perso-2 border-radius">
             <div class="card-image">
               <img src="img/gwendal.jpg" alt="Photo de Gwendal Acquart--Reylans" class="animate__animated animate__rotateInDownLeft">
-              <a href="html/info-gwendal.php" class="halfway-fab btn-floating pulse orange">
+              <a href="./info-gwendal.php" class="halfway-fab btn-floating pulse orange">
                 <i class="material-icons">check</i>
               </a>
             </div>
@@ -26,8 +26,8 @@ headerPage();
               </p>
             </div>
             <div class="card-action">
-              <a href="html/gang-beasts.php">Gang Beasts</a>
-              <a href="html/a_mazing.php">A_mazing</a>
+              <a href="./gang-beasts.php">Gang Beasts</a>
+              <a href="./a_mazing.php">A_mazing</a>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@ headerPage();
           <div class="card color perso-2 border-radius ">
             <div class="card-image">
               <img src="img/ewen.jpg" alt="Photo de Ewen Beaufils" class="animate__animated animate__rotateInDownRight">
-              <a href="html/info-ewen.php" class=" halfway-fab btn-floating pulse orange">
+              <a href="./info-ewen.php" class=" halfway-fab btn-floating pulse orange">
                 <i class="material-icons">check</i>
               </a>
             </div>
@@ -49,8 +49,8 @@ headerPage();
               </p>
             </div>
             <div class="card-action">
-              <a href="html/rocket-league.php">Rocket League</a>
-              <a href="html/pacman.php">PacMan</a>
+              <a href="./rocket-league.php">Rocket League</a>
+              <a href="./pacman.php">PacMan</a>
             </div>
           </div>
         </div>
