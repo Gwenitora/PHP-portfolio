@@ -33,9 +33,13 @@ function headerPage() {
           <li><a href="./index.php"><i class="material-icons left">home</i>Home</a></li>
           <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
           <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i class="material-icons left">group</i>Team</a> </li>
-          <?php if (!isset($_SESSION['user'])) { ?>
+          <?php echo $_SESSION['user']['admin'];
+          if (!isset($_SESSION['user'])) { ?>
           <li><a href="#signIn" class="modal-trigger"><i class="material-icons left">input</i>Sign In</a></li>
           <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>Login</a></li>
+          <?php }elseif($_SESSION['user']['admin'] == 1){ ?>
+          <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
+          <li><a href="admin.php"><i class="material-icons left">security</i>Admin</a></li>
           <?php }else{ ?>
           <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
           <?php } ?>
@@ -61,6 +65,9 @@ function headerPage() {
           <?php if (!isset($_SESSION['user'])) { ?>
           <li><a href="#signIn" class="modal-trigger white-text"><i class="material-icons left">input</i>Sign In</a></li>
           <li><a href="#login" class="modal-trigger white-text"><i class="material-icons left">login</i>Login</a></li>
+          <?php }elseif($_SESSION['user']['admin'] == 1){ ?>
+          <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
+          <li><a href="admin.php"><i class="material-icons left">security</i>Admin</a></li>
           <?php }else{ ?>
           <li><a href="#logout" class="modal-trigger white-text"><i class="material-icons left">logout</i>Logout</a></li>
           <?php } ?>
