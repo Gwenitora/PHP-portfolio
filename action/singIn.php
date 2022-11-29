@@ -32,6 +32,7 @@ if(count($dataName) == 0 && count($dataEmail) == 0){
 	$sql = "INSERT INTO users(name, password, email) VALUES(:name, SHA1(:password), :email)";
 	$pre = $pdo->prepare($sql);
 	$pre->execute($dataBinded);
+	$_SESSION['user'] = $pre->fetch(PDO::FETCH_ASSOC);
 }/*else{
 
 }*/
