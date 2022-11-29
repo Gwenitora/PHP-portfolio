@@ -2,7 +2,7 @@
 
 require_once "config.php";
 
-$sql = "INSERT INTO user(name, password, email) VALUES(:name, :password, :email)";
+$sql = "INSERT INTO users(name, password, email) VALUES(:name, :password, :email)";
 $dataBinded=array(
     ':name'   => $_POST['name'],
     ':password'=> $_POST['password'],
@@ -11,4 +11,5 @@ $dataBinded=array(
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 
+//require_once "go-back.php";
 ?>

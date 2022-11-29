@@ -136,7 +136,7 @@ function headerPage() {
   <!-- Sign in -->
   <div class="container">
     <div class="modal color perso-2 border-radius" id="signIn">
-      <form action="singIn.php" method="post">
+      <form action="action/singin.php" method="post">
         <div class="row">
           <div class="input-field col s12 l5">
             <i class="material-icons prefix">account_circle</i>
