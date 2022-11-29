@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "config.php";
 
 function headerPage() {
   ?>
@@ -58,7 +59,12 @@ function headerPage() {
       <li><a href="" onclick="sidenavClose()" class="white-text"><i class="material-icons left">home</i>Home</a> </li>
       <li><a href="#team" onclick="sidenavClose()" class="white-text"><i class="material-icons left">phone</i>Team</a></li>
       <li><a href="#contact" onclick="sidenavClose()" class="modal-trigger white-text"><i class="material-icons left">group</i>Contact</a></li>
-      <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>login</a></li>
+          <?php if (isset($_SESSION['user'])) { ?>
+          <li><a href="#signIn" class="modal-trigger"><i class="material-icons left">input</i>Sign In</a></li>
+          <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>Login</a></li>
+          <?php }else{ ?>
+          <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
+          <?php } ?>
     </ul>
 
 
@@ -126,49 +132,51 @@ function headerPage() {
       </div>
     </div>
 
-    <!-- Sign in -->
-    <div class="container">
-      <div class="modal color perso-2 border-radius" id="signIn">
-        <form action="action/singin.php" method="post">
-          <div class="row">
-            <div class="input-field col s12 l5">
-              <i class="material-icons prefix">account_circle</i>
-              <input type="text" id="pseudo-signIn" class="name" name="name">
-              <label for="pseudo-signIn">NOM Prénom</label>
-            </div>
-            <div class="input-field col s12 l7">
-                <i class="material-icons prefix">mail</i>
-                <input type="email" id="email-signIn" class="email" name="email">
-                <label for="email-signIn">Email</label>
-            </div>
-            <div class="input-field col s12">
-              <i class="material-icons prefix">lock</i>
-              <input type="password" id="password-signIn" class="object" name="password">
-              <label for="password-signIn">Mot de passe</label>
-            </div>
+  <!-- Sign in -->
+  <div class="container">
+    <div class="modal color perso-2 border-radius" id="signIn">
+      <form action="action/singin.php" method="post">
+        <div class="row">
+          <div class="input-field col s12 l5">
+            <i class="material-icons prefix">account_circle</i>
+            <input type="text" id="pseudo-signIn" class="name" name="name">
+            <label for="pseudo-signIn">NOM Prénom</label>
           </div>
+          <div class="input-field col s12 l7">
+              <i class="material-icons prefix">mail</i>
+              <input type="email" id="email-signIn" class="email" name="email">
+              <label for="email-signIn">Email</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="password-signIn" class="object" name="password">
+            <label for="password-signIn">Mot de passe</label>
+          </div>
+        </div>
+        <div class="modal-close color perso-2 center" id="suprise">
+          <button class="btn waves-effect waves-light">
+            <span>Envoyer</span>
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+      <?php }else{ ?>
+
+  <!-- Logout -->
+  <div class="container">
+      <div class="modal color perso-2 border-radius" id="logout">
+      <form action="action/logout.php" method="post">
+          <p> Êtes-vous sûr de vouloir vous déconnecter ? </p>
           <div class="modal-close color perso-2 center" id="suprise">
             <button class="btn waves-effect waves-light">
-              <span>Envoyer</span>
+              <span>Se déconnecter</span>
               <i class="material-icons right">send</i>
             </button>
           </div>
         </form>
-      </div>
-    </div>
-
-    <?php }else{ ?>
-
-    <!-- Logout -->
-    <div class="container">
-      <div class="modal color perso-2 border-radius" id="logout">
-        <p> Êtes-vous sûr de vouloir vous déconnecter ? </p>
-        <div class="modal-close color perso-2 center" id="suprise">
-          <button class="btn waves-effect waves-light">
-            <span>Se déconnecter</span>
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
       </div>
     </div>
   <?php
