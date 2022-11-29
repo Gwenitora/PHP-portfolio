@@ -104,9 +104,9 @@ function headerPage() {
             <label for="pseudo-input">NOM Prénom</label>
           </div>
           <div class="input-field col s12">
-            <i class="material-icons prefix">password</i>
-            <input type="password" id="password-input" class="password">
-            <label for="password-input">Password</label>
+            <i class="material-icons prefix">lock</i>
+            <input type="text" id="password" class="object">
+            <label for="password">Mot de passe</label>
           </div>
         </div>
         <div class="modal-close color perso-2 center" id="suprise">
@@ -115,7 +115,6 @@ function headerPage() {
             <i class="material-icons right">send</i>
           </button>
         </div>
-
       </div>
     </div>
   <?php
