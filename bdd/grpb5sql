@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 29 Novembre 2022 à 12:44
+-- Généré le :  Mar 29 Novembre 2022 à 14:35
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -30,6 +30,7 @@ USE `grpb5`;
 
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `img_carousel` varchar(100) CHARACTER SET utf8 NOT NULL,
   `img_pres` varchar(100) CHARACTER SET utf8 NOT NULL,
   `title` varchar(50) CHARACTER SET utf8 NOT NULL,
@@ -77,14 +78,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `password`, `email`, `img`, `admin`, `as_portfolio`) VALUES
-(1, 'fafasff', 'afafgafafa', 'afafaf@gmail.com', NULL, 0, 0),
-(2, 'fafasff', 'afafgafafa', 'afafaf@gmail.com', NULL, 0, 0);
-
---
 -- Index pour les tables exportées
 --
 
@@ -92,7 +85,8 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `img`, `admin`, `as_port
 -- Index pour la table `projects`
 --
 ALTER TABLE `projects`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Index pour la table `skills`
@@ -132,7 +126,7 @@ ALTER TABLE `skills`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
