@@ -154,6 +154,12 @@ a.btn:hover {
   padding-bottom: 0px;
 }
 
+/*----- Logout -----*/
+
+#logout p {
+  text-align: center !important;
+}
+
 /*----- Carousel -----*/
 
 .carousel{
