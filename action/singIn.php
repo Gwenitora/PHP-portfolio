@@ -2,14 +2,39 @@
 
 require_once "config.php";
 
-$sql = "INSERT INTO users(name, password, email) VALUES(:name, :password, :email)";
 $dataBinded=array(
     ':name'   => $_POST['name'],
     ':password'=> $_POST['password'],
 	':email'   => $_POST['email']
 );
-$pre = $pdo->prepare($sql);
-$pre->execute($dataBinded);
 
-//require_once "go-back.php";
+$dataBindedName=array(
+    ':name'   => $_POST['name']
+);
+
+$dataBindedEmail = array(
+	':email'   => $_POST['email']
+);
+
+$sqlName = "SELECT name FROM users WHERE name = :name";
+
+$preName = $pdo->prepare($sqlName);
+$preName->execute($dataBindedName);
+$dataName = $preName->fetchAll(PDO::FETCH_ASSOC);
+
+$sqlEmail = "SELECT email FROM users WHERE email = :email";
+
+$preEmail = $pdo->prepare($sqlEmail);
+$preEmail->execute($dataBindedEmail);
+$dataEmail = $preEmail->fetchAll(PDO::FETCH_ASSOC);
+
+if(count($dataName) == 0 && count($dataEmail) == 0){
+	$sql = "INSERT INTO users(name, password, email) VALUES(:name, :password, :email)";
+	$pre = $pdo->prepare($sql);
+	$pre->execute($dataBinded);
+}/*else{
+
+}*/
+
+require_once "go-back.php";
 ?>
