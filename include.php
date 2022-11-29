@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once "config.php";
 
 function headerPage() {
   ?>
@@ -34,7 +33,7 @@ function headerPage() {
           <li><a href="./index.php"><i class="material-icons left">home</i>Home</a></li>
           <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
           <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i class="material-icons left">group</i>Team</a> </li>
-          <?php if (isset($_SESSION['user'])) { ?>
+          <?php if (!isset($_SESSION['user'])) { ?>
           <li><a href="#signIn" class="modal-trigger"><i class="material-icons left">input</i>Sign In</a></li>
           <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>Login</a></li>
           <?php }else{ ?>
@@ -59,7 +58,7 @@ function headerPage() {
       <li><a href="" onclick="sidenavClose()" class="white-text"><i class="material-icons left">home</i>Home</a> </li>
       <li><a href="#team" onclick="sidenavClose()" class="white-text"><i class="material-icons left">phone</i>Team</a></li>
       <li><a href="#contact" onclick="sidenavClose()" class="modal-trigger white-text"><i class="material-icons left">group</i>Contact</a></li>
-          <?php if (isset($_SESSION['user'])) { ?>
+          <?php if (!isset($_SESSION['user'])) { ?>
           <li><a href="#signIn" class="modal-trigger"><i class="material-icons left">input</i>Sign In</a></li>
           <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>Login</a></li>
           <?php }else{ ?>
@@ -104,7 +103,7 @@ function headerPage() {
       </div>
     </div>
 
-    <?php if (isset($_SESSION['user'])) { ?>
+    <?php if (!isset($_SESSION['user'])) { ?>
       
     <!-- Login -->
     <div class="container">
