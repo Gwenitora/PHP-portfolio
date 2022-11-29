@@ -64,11 +64,11 @@ function headerPage() {
           <?php if (!isset($_SESSION['user'])) { ?>
           <li><a href="#signIn" class="modal-trigger white-text"><i class="material-icons left">input</i>Sign In</a></li>
           <li><a href="#login" class="modal-trigger white-text"><i class="material-icons left">login</i>Login</a></li>
-          <?php }if($_SESSION['user']['admin'] == 1){ ?>
-          <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
-          <li><a href="admin.php"><i class="material-icons left">security</i>Admin</a></li>
           <?php }else{ ?>
-          <li><a href="#logout" class="modal-trigger white-text"><i class="material-icons left">logout</i>Logout</a></li>
+            <li><a href="#logout" class="modal-trigger white-text"><i class="material-icons left">logout</i>Logout</a></li>
+            <?php if ($_SESSION['user']['admin'] == 1) { ?>
+            <li><a href="admin.php" class=" white-text"><i class="material-icons left">security</i>Admin</a></li>
+            <?php } ?>
           <?php } ?>
     </ul>
 
