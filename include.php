@@ -33,9 +33,12 @@ function headerPage() {
           <li><a href="./index.php"><i class="material-icons left">home</i>Home</a></li>
           <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
           <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i class="material-icons left">group</i>Team</a> </li>
+          <?php if (isset($_SESSION['user'])) { ?>
           <li><a href="#signIn" class="modal-trigger"><i class="material-icons left">input</i>Sign In</a></li>
           <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>Login</a></li>
+          <?php }else{ ?>
           <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
+          <?php } ?>
         </ul>
 
         <!-- Dropdown menu -->
@@ -95,30 +98,66 @@ function headerPage() {
       </div>
     </div>
 
+    <?php if (isset($_SESSION['user'])) { ?>
+      
     <!-- Login -->
     <div class="container">
       <div class="modal color perso-2 border-radius" id="login">
-
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">account_circle</i>
-            <input type="text" id="pseudo-input" class="name">
-            <label for="pseudo-input">NOM Prénom</label>
+        <form action="action/login.php" method="post">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input type="text" id="pseudo-input" class="name">
+              <label for="pseudo-input">NOM Prénom</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock</i>
+              <input type="password" id="password" class="object">
+              <label for="password">Mot de passe</label>
+            </div>
           </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">lock</i>
-            <input type="password" id="password" class="object">
-            <label for="password">Mot de passe</label>
+          <div class="modal-close color perso-2 center" id="suprise">
+            <button class="btn waves-effect waves-light">
+              <input type="submit" value="Envoyer">
+              <i class="material-icons right">send</i>
+            </button>
           </div>
-        </div>
-        <div class="modal-close color perso-2 center" id="suprise">
-          <button class="btn waves-effect waves-light">
-            <span>Envoyer</span>
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
+        </form>
       </div>
     </div>
+
+    <!-- Sign in -->
+    <div class="container">
+      <div class="modal color perso-2 border-radius" id="signIn">
+        <form action="action/singin.php" method="post">
+          <div class="row">
+            <div class="input-field col s12 l5">
+              <i class="material-icons prefix">account_circle</i>
+              <input type="text" id="pseudo-signIn" class="name" name="name">
+              <label for="pseudo-signIn">NOM Prénom</label>
+            </div>
+            <div class="input-field col s12 l7">
+                <i class="material-icons prefix">mail</i>
+                <input type="email" id="email-signIn" class="email" name="email">
+                <label for="email-signIn">Email</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock</i>
+              <input type="password" id="password-signIn" class="object" name="password">
+              <label for="password-signIn">Mot de passe</label>
+            </div>
+          </div>
+          <div class="modal-close color perso-2 center" id="suprise">
+            <button class="btn waves-effect waves-light">
+              <span>Envoyer</span>
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <?php }else{ ?>
 
     <!-- Logout -->
     <div class="container">
@@ -132,38 +171,8 @@ function headerPage() {
         </div>
       </div>
     </div>
-
-  <!-- Sign in -->
-  <div class="container">
-    <div class="modal color perso-2 border-radius" id="signIn">
-      <form action="action/singin.php" method="post">
-        <div class="row">
-          <div class="input-field col s12 l5">
-            <i class="material-icons prefix">account_circle</i>
-            <input type="text" id="pseudo-signIn" class="name" name="name">
-            <label for="pseudo-signIn">NOM Prénom</label>
-          </div>
-          <div class="input-field col s12 l7">
-              <i class="material-icons prefix">mail</i>
-              <input type="email" id="email-signIn" class="email" name="email">
-              <label for="email-signIn">Email</label>
-          </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">lock</i>
-            <input type="password" id="password-signIn" class="object" name="password">
-            <label for="password-signIn">Mot de passe</label>
-          </div>
-        </div>
-        <div class="modal-close color perso-2 center" id="suprise">
-          <button class="btn waves-effect waves-light">
-            <span>Envoyer</span>
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
   <?php
+    }
 }
 function footerPage() {
   ?>

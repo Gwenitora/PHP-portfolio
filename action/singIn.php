@@ -4,7 +4,7 @@ require_once "config.php";
 
 $dataBinded=array(
     ':name'   => $_POST['name'],
-    ':password'=> $_POST['password'],
+    ':password'=> "€df:gù*:dcv65zefr53é#24.'".$_POST['password'],
 	':email'   => $_POST['email']
 );
 
@@ -29,7 +29,7 @@ $preEmail->execute($dataBindedEmail);
 $dataEmail = $preEmail->fetchAll(PDO::FETCH_ASSOC);
 
 if(count($dataName) == 0 && count($dataEmail) == 0){
-	$sql = "INSERT INTO users(name, password, email) VALUES(:name, :password, :email)";
+	$sql = "INSERT INTO users(name, password, email) VALUES(:name, SHA1(:password), :email)";
 	$pre = $pdo->prepare($sql);
 	$pre->execute($dataBinded);
 }/*else{
