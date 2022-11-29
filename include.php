@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "config.php";
 
 function headerPage() {
   ?>
@@ -123,13 +124,15 @@ function headerPage() {
     <!-- Logout -->
     <div class="container">
       <div class="modal color perso-2 border-radius" id="logout">
-        <p> Êtes-vous sûr de vouloir vous déconnecter ? </p>
-        <div class="modal-close color perso-2 center" id="suprise">
-          <button class="btn waves-effect waves-light">
-            <span>Se déconnecter</span>
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
+        <form action="action/logout.php" method="post">
+          <p> Êtes-vous sûr de vouloir vous déconnecter ? </p>
+          <div class="modal-close color perso-2 center" id="suprise">
+            <button class="btn waves-effect waves-light">
+              <span>Se déconnecter</span>
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -161,6 +164,31 @@ function headerPage() {
           </button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Delete user -->
+    <div class="container">
+    <div class="modal color perso-2 border-radius" id="login">
+
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input type="text" id="pseudo-input" class="name">
+          <label for="pseudo-input">NOM Prénom</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input type="password" id="password" class="object">
+          <label for="password">Mot de passe</label>
+        </div>
+      </div>
+      <div class="modal-close color perso-2 center" id="suprise">
+        <button class="btn waves-effect waves-light">
+          <span>Envoyer</span>
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
     </div>
   </div>
   <?php

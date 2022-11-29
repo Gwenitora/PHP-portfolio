@@ -1,4 +1,6 @@
 <?php
+require_once "config.php";
+
 $headers = array('MIME-Version: 1.0','Content-type: text/html; charset=utf8');
 $emailGwen = "gacquart-reylans@gaming.tech";
 $emailEwen = "ebaufils@gaming.tech";
