@@ -34,13 +34,13 @@ function headerPage() {
           <li><a href="#contact" class="modal-trigger"><i class="material-icons left">phone</i>Contact</a> </li>
           <li><a href="#" class="dropdown-trigger" data-target="dropdown-team"><i class="material-icons left">group</i>Team</a> </li>
           <?php if (!isset($_SESSION['user'])) { ?>
-          <li><a href="#signIn" class="modal-trigger"><i class="material-icons left">input</i>Sign Up</a></li>
+          <li><a href="#signUp" class="modal-trigger"><i class="material-icons left">input</i>Sign Up</a></li>
           <li><a href="#login" class="modal-trigger"><i class="material-icons left">login</i>Login</a></li>
           <?php }else{ ?>
-            <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
             <?php if ($_SESSION['user']['admin'] == 1) { ?>
             <li><a href="admin.php"><i class="material-icons left">security</i>Admin</a></li>
             <?php } ?>
+            <li><a href="#logout" class="modal-trigger"><i class="material-icons left">logout</i>Logout</a></li>
           <?php } ?>
         </ul>
 
@@ -62,13 +62,13 @@ function headerPage() {
       <li><a href="#team" onclick="sidenavClose()" class="white-text"><i class="material-icons left">phone</i>Team</a></li>
       <li><a href="#contact" onclick="sidenavClose()" class="modal-trigger white-text"><i class="material-icons left">group</i>Contact</a></li>
           <?php if (!isset($_SESSION['user'])) { ?>
-          <li><a href="#signIn" class="modal-trigger white-text"><i class="material-icons left">input</i>Sign In</a></li>
+          <li><a href="#signUp" class="modal-trigger white-text"><i class="material-icons left">input</i>Sign In</a></li>
           <li><a href="#login" class="modal-trigger white-text"><i class="material-icons left">login</i>Login</a></li>
           <?php }else{ ?>
-            <li><a href="#logout" class="modal-trigger white-text"><i class="material-icons left">logout</i>Logout</a></li>
             <?php if ($_SESSION['user']['admin'] == 1) { ?>
             <li><a href="admin.php" class=" white-text"><i class="material-icons left">security</i>Admin</a></li>
             <?php } ?>
+            <li><a href="#logout" class="modal-trigger white-text"><i class="material-icons left">logout</i>Logout</a></li>
           <?php } ?>
     </ul>
 
@@ -139,23 +139,23 @@ function headerPage() {
 
   <!-- Sign up -->
   <div class="container">
-    <div class="modal color perso-2 border-radius" id="signIn">
+    <div class="modal color perso-2 border-radius" id="signUp">
       <form action="action/singup.php" method="post">
         <div class="row">
           <div class="input-field col s12 l5">
             <i class="material-icons prefix">account_circle</i>
-            <input type="text" id="pseudo-signIn" class="name" name="name">
-            <label for="pseudo-signIn">NOM Prénom</label>
+            <input type="text" id="pseudo-signUp" class="name" name="name">
+            <label for="pseudo-signUp">NOM Prénom</label>
           </div>
           <div class="input-field col s12 l7">
               <i class="material-icons prefix">mail</i>
-              <input type="email" id="email-signIn" class="email" name="email">
-              <label for="email-signIn">Email</label>
+              <input type="email" id="email-signUp" class="email" name="email">
+              <label for="email-signUp">Email</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">lock</i>
-            <input type="password" id="password-signIn" class="object" name="password">
-            <label for="password-signIn">Mot de passe</label>
+            <input type="password" id="password-signUp" class="object" name="password">
+            <label for="password-signUp">Mot de passe</label>
           </div>
         </div>
         <div class="modal-close color perso-2 center" id="suprise">
