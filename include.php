@@ -60,36 +60,36 @@ function headerPage() {
     <!-- Contact -->
     <div class="container">
       <div class="modal color perso-2 border-radius" id="contact">
-
-        <div class="row">
-          <div class="input-field col s12 l5">
-            <i class="material-icons prefix">account_circle</i>
-            <input type="text" id="name-input" class="name">
-            <label for="name-input">NOM Prénom</label>
+        <form action="./action/contact.php" method="post">
+          <div class="row">
+            <div class="input-field col s12 l5">
+              <i class="material-icons prefix">account_circle</i>
+              <input type="text" id="name-input" class="name" name="name">
+              <label for="name-input">NOM Prénom</label>
+            </div>
+            <div class="input-field col s12 l7">
+              <i class="material-icons prefix">mail</i>
+              <input type="email" id="email-input" class="email" name="email">
+              <label for="email-input">Email</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">star</i>
+              <input type="text" id="object-input" class="object" name="object">
+              <label for="object-input">Sujet</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">textsms</i>
+              <textarea id="message-input" class="message materialize-textarea" name="message"></textarea>
+              <label for="message-input">Message</label>
+            </div>
           </div>
-          <div class="input-field col s12 l7">
-            <i class="material-icons prefix">mail</i>
-            <input type="email" id="email-input" class="email">
-            <label for="email-input">Email</label>
+          <div class="modal-close color perso-2 center" id="suprise">
+            <button class="btn waves-effect waves-light">
+              <input type="submit" value="Envoyer">
+              <i class="material-icons right">send</i>
+            </button>
           </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">star</i>
-            <input type="text" id="object-input" class="object">
-            <label for="object-input">Sujet</label>
-          </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">textsms</i>
-            <textarea id="message-input" class="message materialize-textarea"></textarea>
-            <label for="message-input">Message</label>
-          </div>
-        </div>
-        <div class="modal-close color perso-2 center" id="suprise">
-          <button class="btn waves-effect waves-light">
-            <span>Envoyer</span>
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
-
+        </form>
       </div>
     </div>
 
