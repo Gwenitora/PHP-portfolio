@@ -317,3 +317,11 @@ img.robot {
 .adminImg{
   width : 100%;
 }
+
+.dropdown-content li {
+  background-color: #1F2228;
+}
+
+.dropdown-content li span {
+  color : white;
+}

@@ -48,15 +48,15 @@ if (!isset($_GET['admin'])) {
               </div>
               <div class= "input-field col s1">
                 <select id="admin<?= $user['id'] ?>" name="admin">
-                  <option value="1" <?= $user['admin']==1?'selected':'' ?>>Oui</option>
-                  <option value="0" <?= $user['admin']==1?'':'selected' ?>>Non</option>
+                  <option class="white-text" value="1" <?= $user['admin']==1?'selected':'' ?>>Oui</option>
+                  <option class="white-text" value="0" <?= $user['admin']==1?'':'selected' ?>>Non</option>
                 </select>
                 <label for="admin<?= $user['id'] ?>">Admin ?</label> 
               </div>
               <div class= "input-field col s1">
                 <select id="as_portfolio<?= $user['id'] ?>" name="as_portfolio">
-                  <option value="1" <?= $user['as_portfolio']==1?'selected':'' ?>>Oui</option>
-                  <option value="0" <?= $user['as_portfolio']==1?'':'selected' ?>>Non</option>
+                  <option class="white-text" value="1" <?= $user['as_portfolio']==1?'selected':'' ?>>Oui</option>
+                  <option class="white-text" value="0" <?= $user['as_portfolio']==1?'':'selected' ?>>Non</option>
                 </select>
                 <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label> 
               </div>
