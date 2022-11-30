@@ -1,6 +1,5 @@
 <?php
 
-header_remove();
 if (!isset($_SERVER['HTTP_REFERER'])){
     header("Location: index.php");
 }else {
