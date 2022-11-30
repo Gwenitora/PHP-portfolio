@@ -17,7 +17,8 @@ if (!isset($_GET['admin'])) {
   </button>
   <button class="btn waves-effect waves-light">
     <a class="white-text" href="?admin=users">Users</a>
-  </button>  <button class="btn waves-effect waves-light">
+  </button>
+  <button class="btn waves-effect waves-light">
     <a class="white-text" href="?admin=skills">Skills</a>
   </button>
 </div>
