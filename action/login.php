@@ -21,7 +21,6 @@ if ($user == []) {
         'classes' => $_SESSION["toastConfig"]["redToast"]
     ];
     $_SESSION['modal'] = "login";
-    echo $_SESSION['modal'];
 }else{
     $_SESSION['user'] = $user;
     $_SESSION['toast'][] = [
@@ -29,9 +28,6 @@ if ($user == []) {
         'classes' => $_SESSION["toastConfig"]["greenToast"]
     ];
 }
-// echo "<pre>";
-// print_r($_SESSION['toast']);
-// echo "</pre>"
 
 
 require_once "go-back.php";
