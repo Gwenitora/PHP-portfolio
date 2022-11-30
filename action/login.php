@@ -15,7 +15,7 @@ $user = $pre->fetch(PDO::FETCH_ASSOC);
 
 /*  Vérifie si l'utilisateur a rentré le bon mot de passe et username*/
 
-if (empty($_POST["name"]) || empty($_POST["password"]) || $user == []) {
+if ($user == []) {
     $_SESSION['toast'][] = [
         'text' => "Mot de passe ou nom d'utilisateur incorecte",
         'classes' => $_SESSION["toastConfig"]["redToast"]

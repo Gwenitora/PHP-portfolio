@@ -296,3 +296,14 @@ img.robot {
   text-align: center;
   color : "red";
 }
+
+/*----- Admin -----*/
+
+.btn-admin {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-admin .btn {
+  margin: 20px;
+}
