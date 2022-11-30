@@ -11,6 +11,11 @@ $dataBinded=array(
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 
+$_SESSION['toast'][] = [
+    'text' => 'Utilisateur supprimé avec succès' ,
+    'classes' => $_SESSION["toastConfig"]["redToast"]
+];
+
 require_once "../action/go-back.php";
 
 ?>
