@@ -4,8 +4,8 @@ headerPage();
 ?>
 
 <?php require_once "action/config.php"; ?>
-<?php require_once "admin/security.php"; ?>
-<?php require_once "admin/delete.php"; ?>
+<?php require "admin/security.php"; ?>
+
 <!-- 
 Delete user
 <div class="container">
