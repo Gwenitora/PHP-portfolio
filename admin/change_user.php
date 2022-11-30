@@ -58,4 +58,8 @@ if (isset($_POST['description'])) {
     $pre->execute($dataBinded);
 }
 
+$_SESSION['toast'][] = [
+    'text' => 'Modifications sauvgardées' ,
+    'classes' => $_SESSION["toastConfig"]["greenToast"]
+];
 require_once "../action/go-back.php";
