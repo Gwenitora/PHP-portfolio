@@ -27,7 +27,7 @@ if (!isset($_GET['admin'])) {
   <?php
   switch ($get) {
     case 'users':
-      $sql = "SELECT id, name, email, img, admin, as_portfolio FROM users";
+      $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users";
       $pre = $pdo->prepare($sql);
       $pre->execute();
       $users = $pre->fetchAll(PDO::FETCH_ASSOC);
@@ -58,7 +58,7 @@ if (!isset($_GET['admin'])) {
                 <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label>
               </div>
               <div class= "input-field col s12">
-                <textarea id="description<?= $user['id'] ?>" class="materialize-textarea" name="description" value="<?= isset($user['description'])?$user['description']:'' ?>"></textarea>
+                <textarea id="description<?= $user['id'] ?>" class="materialize-textarea" name="description"><?= isset($user['description'])?$user['description']:'' ?></textarea>
                 <label for="description<?= $user['id'] ?>">Description</label>
               </div>
               <button class="btn waves-effect waves-light linkedin col">
