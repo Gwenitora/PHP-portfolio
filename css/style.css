@@ -318,8 +318,13 @@ img.robot {
   width : 100%;
 }
 
+.dropdown-content li.selected,
+.dropdown-content li:hover {
+  background-color: #16181d !important;
+}
+
 .dropdown-content li {
-  background-color: #1F2228;
+  background-color: #1F2228 !important;
 }
 
 .dropdown-content li span {
