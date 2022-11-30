@@ -47,12 +47,18 @@ if (!isset($_GET['admin'])) {
                 <label for="email<?= $user['id'] ?>">Mail</label>
               </div>
               <div class= "input-field col s1">
-                <input id="admin<?= $user['id'] ?>" type="text" name="admin" value="<?= isset($user['admin'])?$user['admin']:'' ?>"></input>
-                <label for="admin<?= $user['id'] ?>">Admin ?</label>
+                <select id="admin<?= $user['id'] ?>" name="admin">
+                  <option value="1" <?= $user['admin']==1?'selected':'' ?>>Oui</option>
+                  <option value="0" <?= $user['admin']==1?'':'selected' ?>>Non</option>
+                </select>
+                <label for="admin<?= $user['id'] ?>">Admin ?</label> 
               </div>
               <div class= "input-field col s1">
-                <input id="as_portfolio<?= $user['id'] ?>" type="text" name="as_portfolio" value="<?= isset($user['as_portfolio'])?$user['as_portfolio']:'' ?>"></input>
-                <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label>
+                <select id="as_portfolio<?= $user['id'] ?>" name="as_portfolio">
+                  <option value="1" <?= $user['as_portfolio']==1?'selected':'' ?>>Oui</option>
+                  <option value="0" <?= $user['as_portfolio']==1?'':'selected' ?>>Non</option>
+                </select>
+                <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label> 
               </div>
               <div class= "input-field col s3">
                 <input id="img<?= $user['id'] ?>" type="file" name="img" value="<?= isset($user['img'])?$user['img']:'' ?>"></input>

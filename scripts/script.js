@@ -12,6 +12,7 @@ $(document).ready(function() {
     duration: 350
   });
   restartCarousel()
+  $('select').formSelect();
 });
 
 function sidenavClose(){
