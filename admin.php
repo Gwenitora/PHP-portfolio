@@ -11,12 +11,14 @@ if (!isset($_GET['admin'])) {
 }
 ?>
 
-<button class="btn waves-effect waves-light">
-  <a href="?admin=project">Project</a>
-</button>
-<button class="btn waves-effect waves-light">
-  <a href="?admin=users">User</a>
-</button>
+<div class="btn-admin">
+  <button class="btn waves-effect waves-light">
+    <a class="white-text" href="?admin=project">Project</a>
+  </button>
+  <button class="btn waves-effect waves-light">
+    <a class="white-text" href="?admin=users">User</a>
+  </button>
+</div>
 
 <!-- 
 Delete user
