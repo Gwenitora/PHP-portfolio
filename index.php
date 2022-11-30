@@ -2,6 +2,17 @@
 include 'include.php';
 headerPage();
 ?>
+<?php
+$sql = "SELECT id, name, email, img, admin, as_portfolio FROM user WHERE as_portfolio = 1 " ; 
+$pre = $pdo->prepare($sql); 
+$pre->execute();
+$data = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($data as $var) {
+
+
+?>
+
 
   <!-- Team -->
   <div class="section" id="team">
@@ -32,7 +43,9 @@ headerPage();
           </div>
         </div>
 
-        <div class="col s12 m6">
+        <?php } ?>
+
+        <!-- <div class="col s12 m6">
           <div class="card color perso-2 border-radius ">
             <div class="card-image">
               <img src="img/ewen.jpg" alt="Photo de Ewen Beaufils" class="animate__animated animate__rotateInDownRight">
@@ -53,7 +66,7 @@ headerPage();
               <a href="./pacman.php">PacMan</a>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>
