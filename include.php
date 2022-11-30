@@ -216,9 +216,15 @@ function footerPage() {
       if (isset($_SESSION['toast'])) {
         foreach ($_SESSION['toast'] as $toast) {
           echo "M.toast({html: '" . $toast['text'] . "', classes: '" . $toast['classes'] . "'});";
-        } unset($_SESSION['toast']);
+        }unset($_SESSION['toast']);
       }
+      
+      if (isset($_SESSION['modal'])) {
       ?>
+        $(document).ready(function(){
+          $('#<?= $_SESSION['modal'] ?>').modal('open');
+        });
+        <?php } ?>
     </script>
 
   </body>
