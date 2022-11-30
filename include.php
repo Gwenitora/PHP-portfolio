@@ -224,7 +224,8 @@ function footerPage() {
         $(document).ready(function(){
           $('#<?= $_SESSION['modal'] ?>').modal('open');
         });
-        <?php } ?>
+        <?php 
+      unset($_SESSION['modal']);} ?>
     </script>
 
   </body>

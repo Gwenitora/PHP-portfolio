@@ -2,7 +2,21 @@
 include 'include.php';
 require_once "action/config.php";
 require "admin/security.php";
-headerPage(); ?>
+headerPage(); 
+
+if (!isset($_GET['admin'])) {
+  $get = 'project';
+} else {
+  $get = $_GET['admin'];
+}
+?>
+
+<button class="btn waves-effect waves-light">
+  <a href="?admin=project">Project</a>
+</button>
+<button class="btn waves-effect waves-light">
+  <a href="?admin=users">User</a>
+</button>
 
 <!-- 
 Delete user
