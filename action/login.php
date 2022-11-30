@@ -17,7 +17,7 @@ $user = $pre->fetch(PDO::FETCH_ASSOC);
 
 if ($user == []) {
     $_SESSION['toast'][] = [
-        'text' => 'Mot de passe ou nom d\'utilisateur incorrecte' ,
+        'text' => 'Mot de passe ou nom incorrecte' ,
         'classes' => $_SESSION["toastConfig"]["redToast"]
     ];
     $_SESSION['modal'] = "login";
