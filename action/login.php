@@ -18,6 +18,10 @@ if (empty($user)) {
     echo "<script>alert(\"Votre nom d'utilisateur ou votre mot de passe est erroné \")</script>";
 }else{
     $_SESSION['user'] = $user;
+    $_SESSION['toast'][] = [
+        'text' => 'Bienvenue '.$_SESSION['user']['name'] ,
+        'classes' => $greenToast
+    ];
     require_once "go-back.php";
 }
 

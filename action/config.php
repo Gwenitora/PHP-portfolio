@@ -10,4 +10,8 @@ $pdo = new PDO(
 );
 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
+/* style du toast */
+
+$greenToast = 'rounded white-text green';
+$redToast = 'rounded white-text red accent-4';
 ?>
