@@ -5,7 +5,7 @@ require "admin/security.php";
 headerPage(); 
 
 if (!isset($_GET['admin'])) {
-  $get = 'project';
+  $get = 'projects';
 } else {
   $get = $_GET['admin'];
 }
@@ -13,11 +13,32 @@ if (!isset($_GET['admin'])) {
 
 <div class="btn-admin">
   <button class="btn waves-effect waves-light">
-    <a class="white-text" href="?admin=project">Project</a>
+    <a class="white-text" href="?admin=projects">Projects</a>
   </button>
   <button class="btn waves-effect waves-light">
-    <a class="white-text" href="?admin=users">User</a>
+    <a class="white-text" href="?admin=users">Users</a>
   </button>
+  <button class="btn waves-effect waves-light">
+    <a class="white-text" href="?admin=skills">Skills</a>
+  </button>
+</div>
+
+<div class="container">
+  <?php
+  switch ($get) {
+    case 'users':
+      
+      break;
+
+    case 'skills':
+      
+      break;
+    
+    default:
+      
+      break;
+  }
+  ?>
 </div>
 
 <!-- 
