@@ -20,7 +20,7 @@ $a = count($data)
                 <div class="col s12 m6">
                   <div class="card color perso-2 border-radius">
                     <div class="card-image">
-                      <img src="<?php $var['img'] ?>" alt="Photo de <?php echo $var['name'] ?>" class="animate__animated animate__rotateInDownLeft">
+                      <img src="<?php echo $var['img'] ?>" alt="Photo de <?php echo $var['name'] ?>" class="animate__animated animate__rotateInDownLeft">
                       <a href="./info-gwendal.php" class="halfway-fab btn-floating pulse orange">
                         <i class="material-icons">check</i>
                       </a>
