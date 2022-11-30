@@ -47,7 +47,7 @@ if (!isset($_GET['admin'])) {
                 <label for="email<?= $user['id'] ?>">Mail</label>
               </div>
               <div class= "input-field col s4">
-                <input id="img<?= $user['id'] ?>" type="file" name="img"></input>
+                <input id="img<?= $user['id'] ?>" type="file" name="img" value="<?= isset($user['img'])?$user['img']:'' ?>"></input>
               </div>
               <div class= "input-field col s1">
                 <input id="admin<?= $user['id'] ?>" type="text" name="admin" value="<?= isset($user['admin'])?$user['admin']:'' ?>"></input>
