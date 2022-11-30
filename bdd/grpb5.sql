@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 30 Novembre 2022 à 15:46
+-- Généré le :  Mer 30 Novembre 2022 à 15:59
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -83,9 +83,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `img`, `admin`, `as_portfolio`, `description`) VALUES
-(1, 'root', 'aed2651acd0d438250c29cf4e58d4803b244f8ac', 'root@root.root', NULL, 1, 1, NULL),
-(2, 'a', '689c263fa27b3081d3d87d8dbe5a52d744c7f562', 'a@a.a', NULL, 0, 0, NULL),
-(3, 'b', '6e2e59e6d1116b4bfe9b88460d8adbde6dd2d22e', 'a.b@g.com', NULL, 0, 0, NULL);
+(4, 'BEAUFILS Ewen', 'a3c028dee169390b8084d1b704a4b9051b6293f1', 'ewen.beaufils09@gmail.com', NULL, 1, 1, NULL),
+(5, 'ACQUART--REYLANS Gwendal', 'c948a9b8609c1d868249f3b3fe666c067a6abd2f', 'gwenitora.gardu74@gmail.com', NULL, 1, 1, NULL);
 
 --
 -- Index pour les tables exportées
@@ -136,7 +135,7 @@ ALTER TABLE `skills`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
