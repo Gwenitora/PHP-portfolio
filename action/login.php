@@ -11,8 +11,14 @@ $dataBinded=array(
 $sql = "SELECT id, name, email, img, admin, as_portfolio FROM users WHERE name = :name AND password = SHA1(:password)";
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
-$_SESSION['user'] = $pre->fetch(PDO::FETCH_ASSOC);
+$user = $pre->fetch(PDO::FETCH_ASSOC);
 
-require_once "go-back.php";
+
+if (empty($user)) {
+    echo "<script>alert(\"Votre nom d'utilisateur ou votre mot de passe est erroné \")</script>";
+}else{
+    $_SESSION['user'] = $user;
+    require_once "go-back.php";
+}
 
 ?>
