@@ -19,7 +19,7 @@ if (empty($user)) {
 }else{
     $_SESSION['user'] = $user;
     $_SESSION['toast'][] = [
-        'text' => 'Bienvenue'.$_SESSION['user']['name'] ,
+        'text' => 'Bienvenue '.$_SESSION['user']['name'] ,
         'classes' => $greenToast
     ];
     require_once "go-back.php";
