@@ -151,7 +151,7 @@ function headerPage() {
           </div>
           <div class="input-field col s12 l7">
               <i class="material-icons prefix">mail</i>
-              <input type="text" id="email-signUp" class="email" name="email">
+              <input type="email" id="email-signUp" class="email" name="email">
               <label for="email-signUp">Email</label>
           </div>
           <div class="input-field col s12">

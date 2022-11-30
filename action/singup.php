@@ -28,12 +28,28 @@ $preEmail = $pdo->prepare($sqlEmail);
 $preEmail->execute($dataBindedEmail);
 $dataEmail = $preEmail->fetchAll(PDO::FETCH_ASSOC);
 
-
-function checkPassword($pwd,$dataName, $dataEmail) {
+/* Correction erreur dans modal sign up */
+function checkPassword($pwd,$email, $name, $dataName, $dataEmail) {
 
     if (strlen($pwd) < 8) {
 		$_SESSION['toast'][] =[
 			"text" => "Mot de passe trop court",
+			"classes" => $_SESSION["toastConfig"]["redToast"],
+		];
+		return false;
+    }
+
+	if (strlen($email) == 0) {
+		$_SESSION['toast'][] =[
+			"text" => "Email trop court",
+			"classes" => $_SESSION["toastConfig"]["redToast"],
+		];
+		return false;
+    }
+
+	if (strlen($name) == 0) {
+		$_SESSION['toast'][] =[
+			"text" => "Nom d'utilisateur trop court",
 			"classes" => $_SESSION["toastConfig"]["redToast"],
 		];
 		return false;
@@ -69,15 +85,15 @@ function checkPassword($pwd,$dataName, $dataEmail) {
 			"classes" => $_SESSION["toastConfig"]["redToast"],
 		];
 		return false;
-	} 
+	}
 
 	return true;
 }
 
 
-if (!checkPassword($_POST['password'], $dataName, $dataEmail)) {
-
-}elseif(count($dataName) == 0 && count($dataEmail) == 0){
+if (!checkPassword($_POST['password'], $_POST['email'], $_POST['name'], $dataName, $dataEmail)) {
+	$_SESSION['modal'] = "signUp";
+}else{
 	$sql = "INSERT INTO users(name, password, email) VALUES(:name, SHA1(:password), :email)";
 	$pre = $pdo->prepare($sql);
 	$pre->execute($dataBinded);
