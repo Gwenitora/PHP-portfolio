@@ -46,9 +46,6 @@ if (!isset($_GET['admin'])) {
                 <input id="email<?= $user['id'] ?>" type="email" name="email" value="<?= isset($user['email'])?$user['email']:'' ?>"></input>
                 <label for="email<?= $user['id'] ?>">Mail</label>
               </div>
-              <div class= "input-field col s4">
-                <input id="img<?= $user['id'] ?>" type="file" name="img" value="<?= isset($user['img'])?$user['img']:'' ?>"></input>
-              </div>
               <div class= "input-field col s1">
                 <input id="admin<?= $user['id'] ?>" type="text" name="admin" value="<?= isset($user['admin'])?$user['admin']:'' ?>"></input>
                 <label for="admin<?= $user['id'] ?>">Admin ?</label>
@@ -56,6 +53,12 @@ if (!isset($_GET['admin'])) {
               <div class= "input-field col s1">
                 <input id="as_portfolio<?= $user['id'] ?>" type="text" name="as_portfolio" value="<?= isset($user['as_portfolio'])?$user['as_portfolio']:'' ?>"></input>
                 <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label>
+              </div>
+              <div class= "input-field col s3">
+                <input id="img<?= $user['id'] ?>" type="file" name="img" value="<?= isset($user['img'])?$user['img']:'' ?>"></input>
+              </div>
+              <div class= "input-field col s1">
+                <img class="adminImg" src="<?= isset($user['img'])?$user['img']:'' ?>">
               </div>
               <div class= "input-field col s12">
                 <textarea id="description<?= $user['id'] ?>" class="materialize-textarea" name="description"><?= isset($user['description'])?$user['description']:'' ?></textarea>
