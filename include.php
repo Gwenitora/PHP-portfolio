@@ -2,6 +2,7 @@
 require_once "action/config.php"; 
 
 function headerPage() {
+  unset($_SESSION['HTTP_REFERER']);
   ?>
   <!DOCTYPE html>
   
