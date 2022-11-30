@@ -302,8 +302,14 @@ img.robot {
 .btn-admin {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
 }
 
 .btn-admin .btn {
   margin: 20px;
+}
+
+.delete-admin {
+  margin-left: 20px;
 }

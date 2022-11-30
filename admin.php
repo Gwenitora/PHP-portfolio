@@ -34,26 +34,47 @@ if (!isset($_GET['admin'])) {
 
       foreach( $users as $user) {
         
-        ?><div class="row">
-            <div class= "col s2">
-            <p><?= isset($user['name'])?$user['name']:'' ?></p>
-            </div>
-            <div class= "col s2">
-            <p><?= isset($user['email'])?$user['email']:'' ?></p>
-            </div>
-            <div class= "col s2">
-            <p><?= isset($user['img'])?$user['img']:'' ?></p>
-            </div>
-            <div class= "col s2">
-            <p><?= isset($user['admin'])?$user['admin']:'' ?></p>
-            </div>
-            <div class= "col s2">
-            <p><?= isset($user['as_portfolio'])?$user['as_portfolio']:'' ?></p>
-            </div>
-            <div class= "col s2">
-              <p><?= isset($user['description'])?$user['description']:'' ?></p>
-            </div>
-        </div><?php
+        ?>
+          <div class="row">
+            <form method="post" action="admin/change_user.php" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?= $user['id'] ?>">
+              <div class= "input-field col s3">
+                <input id="name<?= $user['id'] ?>" type="text" name="name" value="<?= isset($user['name'])?$user['name']:'' ?>"></input>
+                <label for="name<?= $user['id'] ?>">NOM Prénom</label>
+              </div>
+              <div class= "input-field col s3">
+                <input id="email<?= $user['id'] ?>" type="email" name="email" value="<?= isset($user['email'])?$user['email']:'' ?>"></input>
+                <label for="email<?= $user['id'] ?>">Mail</label>
+              </div>
+              <div class= "input-field col s4">
+                <input id="img<?= $user['id'] ?>" type="file" name="img"></input>
+              </div>
+              <div class= "input-field col s1">
+                <input id="admin<?= $user['id'] ?>" type="text" name="admin" value="<?= isset($user['admin'])?$user['admin']:'' ?>"></input>
+                <label for="admin<?= $user['id'] ?>">Admin ?</label>
+              </div>
+              <div class= "input-field col s1">
+                <input id="as_portfolio<?= $user['id'] ?>" type="text" name="as_portfolio" value="<?= isset($user['as_portfolio'])?$user['as_portfolio']:'' ?>"></input>
+                <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label>
+              </div>
+              <div class= "input-field col s12">
+                <textarea id="description<?= $user['id'] ?>" class="materialize-textarea" name="description" value="<?= isset($user['description'])?$user['description']:'' ?>"></textarea>
+                <label for="description<?= $user['id'] ?>">Description</label>
+              </div>
+              <button class="btn waves-effect waves-light linkedin col">
+                <input type="submit" value="Sauvegarder">
+                <i class="material-icons right">save</i>
+              </button>
+            </form>
+            <form method="post" action="admin/delete_user.php" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?= $user['id'] ?>">
+              <button class="btn waves-effect waves-light linkedin col delete-admin">
+                <input type="submit" value="Delete">
+                <i class="material-icons right">delete</i>
+              </button>
+            </form>
+          </div>
+        <?php
       }
 
 
