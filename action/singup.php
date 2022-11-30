@@ -98,7 +98,12 @@ if (!checkPassword($_POST['password'], $_POST['email'], $_POST['name'], $dataNam
 	$pre = $pdo->prepare($sql);
 	$pre->execute($dataBinded);
 	$_SESSION['user'] = $pre->fetch(PDO::FETCH_ASSOC);
+	$_SESSION['toast'][] = [
+        'text' => 'Compte de  '.$_SESSION['user']['name']. " créé" ,
+        'classes' => $_SESSION["toastConfig"]["greenToast"]
+    ];
 }
+
 
 
 require_once "go-back.php";
