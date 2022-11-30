@@ -211,6 +211,17 @@ function footerPage() {
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./scripts/script.js"></script>
+    <script>
+      <?php
+      if (isset($_SESSION['toast'])) {
+        foreach ($_SESSION['toast'] as $toast) {
+          echo "M.toast({html: '" . $toast['text'] . "', classes: '" . $toast['classes'] . "'});";
+        }
+      }
+      echo "M.toast({html: 'Welcome " . $_SESSION['user']['name'] . "', classes: 'rounded white-text green'});";
+      echo "M.toast({html: 'Welcome " . $_SESSION['user']['name'] . "', classes: 'rounded white-text red accent-4'});";
+      ?>
+    </script>
 
   </body>
 
