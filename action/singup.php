@@ -41,7 +41,7 @@ function checkPassword($pwd,$email, $name, $dataName, $dataEmail) {
 
 	if (strlen($email) == 0) {
 		$_SESSION['toast'][] =[
-			"text" => "Email trop court",
+			"text" => "Email trop",
 			"classes" => $_SESSION["toastConfig"]["redToast"],
 		];
 		return false;
