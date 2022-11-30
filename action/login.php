@@ -29,6 +29,5 @@ if ($user == []) {
     ];
 }
 
-
 require_once "go-back.php";
 ?>
