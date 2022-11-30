@@ -27,11 +27,7 @@ $a = count($data)
                     </div>
                     <div class="card-content">
                       <span class="card-title"><?php echo $var['name']?></span>                                        
-                      <p> <?php echo $var['description'] ?>
-                        <!-- Développeur depuis la 5ème, je suis aujourd'hui dans une école de programmation dans le jeu vidéo très
-                        prestigieuse. j'ai déjà eu l'occasion de finir des projets tels qu'un site pour présenter un jeu, ou
-                        encore, un jeu assyncrone fonctionnant sur une calculette. -->
-                      </p>
+                      <p> <?php echo $var['description'] ?></p>
                     </div>
                     <div class="card-action">
                       <a href="./gang-beasts.php">Gang Beasts</a>
