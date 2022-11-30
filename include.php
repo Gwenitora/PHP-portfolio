@@ -121,7 +121,7 @@ function headerPage() {
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
               <input type="text" id="pseudo-input" class="name" name="name">
-              <label for="pseudo-input">NOM Prénom</label>
+              <label for="pseudo-input">NOM Prénom ou Mail</label>
             </div>
             <div class="input-field col s12">
               <i class="material-icons prefix">lock</i>
