@@ -15,12 +15,13 @@ $user = $pre->fetch(PDO::FETCH_ASSOC);
 
 /*  Vérifie si l'utilisateur a rentré le bon mot de passe et username*/
 
-if (empty($_POST["name"]) || empty($_POST["password"]) || $user == []) {
+if ($user == []) {
     $_SESSION['toast'][] = [
-        'text' => "Mot de passe ou nom d'utilisateur incorecte",
+        'text' => "Mot de passe ou nom d'utilisateur incorrecte",
         'classes' => $_SESSION["toastConfig"]["redToast"]
     ];
     $_SESSION['modal'] = "login";
+    echo $_SESSION['modal'];
 }else{
     $_SESSION['user'] = $user;
     $_SESSION['toast'][] = [
@@ -28,5 +29,10 @@ if (empty($_POST["name"]) || empty($_POST["password"]) || $user == []) {
         'classes' => $_SESSION["toastConfig"]["greenToast"]
     ];
 }
-require_once "go-back.php";
+// echo "<pre>";
+// print_r($_SESSION['toast']);
+// echo "</pre>"
+
+
+//require_once "go-back.php";
 ?>
