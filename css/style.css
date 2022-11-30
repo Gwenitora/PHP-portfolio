@@ -289,3 +289,10 @@ img.robot {
   bottom: -20px;
   z-index: 9999;
 }
+
+/*----- Error -----*/
+
+.error {
+  text-align: center;
+  color : "red";
+}

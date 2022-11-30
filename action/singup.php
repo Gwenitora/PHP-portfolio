@@ -28,7 +28,9 @@ $preEmail = $pdo->prepare($sqlEmail);
 $preEmail->execute($dataBindedEmail);
 $dataEmail = $preEmail->fetchAll(PDO::FETCH_ASSOC);
 
-if(count($dataName) == 0 && count($dataEmail) == 0){
+
+
+if(count($dataName) == 0 && count($dataEmail) == 0 && strlen($_POST['password']) >= 4){
 	$sql = "INSERT INTO users(name, password, email) VALUES(:name, SHA1(:password), :email)";
 	$pre = $pdo->prepare($sql);
 	$pre->execute($dataBinded);
