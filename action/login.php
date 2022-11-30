@@ -20,7 +20,7 @@ if (empty($user)) {
     $_SESSION['user'] = $user;
     $_SESSION['toast'][] = [
         'text' => 'Bienvenue '.$_SESSION['user']['name'] ,
-        'classes' => $greenToast
+        'classes' => $_SESSION["toastConfig"]["greenToast"]
     ];
     require_once "go-back.php";
 }

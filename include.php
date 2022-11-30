@@ -216,10 +216,8 @@ function footerPage() {
       if (isset($_SESSION['toast'])) {
         foreach ($_SESSION['toast'] as $toast) {
           echo "M.toast({html: '" . $toast['text'] . "', classes: '" . $toast['classes'] . "'});";
-        }
+        } unset($_SESSION['toast']);
       }
-      echo "M.toast({html: 'Welcome " . $_SESSION['user']['name'] . "', classes: 'rounded white-text green'});";
-      echo "M.toast({html: 'Welcome " . $_SESSION['user']['name'] . "', classes: 'rounded white-text red accent-4'});";
       ?>
     </script>
 

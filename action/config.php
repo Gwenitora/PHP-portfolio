@@ -12,6 +12,12 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
 /* style du toast */
 
-$greenToast = 'rounded white-text green';
-$redToast = 'rounded white-text red accent-4';
+$_SESSION["toastConfig"]["greenToast"] = 'rounded white-text green';
+$_SESSION["toastConfig"]["redToast"] = 'rounded white-text red accent-4';
+
+/* login */
+
+$passwordError = "Mot de passe incorrecte";
+$usernameError = "Nom d'utilisateur incorrecte";
+
 ?>
