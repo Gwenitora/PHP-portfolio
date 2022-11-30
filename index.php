@@ -7,6 +7,7 @@ $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users
 $pre = $pdo->prepare($sql); 
 $pre->execute();
 $data = $pre->fetchAll(PDO::FETCH_ASSOC);
+$a = count($data)
 ?>
 <div class="section" id="team">
       <div class="container">
@@ -39,7 +40,7 @@ $data = $pre->fetchAll(PDO::FETCH_ASSOC);
                   </div>
                 </div>
 
-            <?php } break;
+            <?php }
 
 
           }?>
