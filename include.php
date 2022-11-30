@@ -218,9 +218,13 @@ function footerPage() {
           echo "M.toast({html: '" . $toast['text'] . "', classes: '" . $toast['classes'] . "'});";
         }
       }
-      echo "M.toast({html: 'Welcome " . $_SESSION['user']['name'] . "', classes: 'rounded white-text green'});";
-      echo "M.toast({html: 'Welcome " . $_SESSION['user']['name'] . "', classes: 'rounded white-text red accent-4'});";
+
+      if (isset($_SESSION['modal'])) {
       ?>
+        $(document).ready(function(){
+          $('#<?= $_SESSION['modal'] ?>').modal('open');
+        });
+        <?php } ?>
     </script>
 
   </body>

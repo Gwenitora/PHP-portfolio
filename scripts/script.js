@@ -65,8 +65,8 @@ function rickNone() {
 
 $(document).keydown(function() {
   if (event.key == '²') {
-    new Audio('../misc/nyan-cat.mp3').play();
-    $('img').attr('src','../img/nyan-cat.gif');
+    new Audio('./misc/nyan-cat.mp3').play();
+    $('img').attr('src','./img/nyan-cat.gif');
     setTimeout(refresh, durationNyan);
   };
 });
@@ -76,18 +76,18 @@ function refresh() {
 }
 
 
-$(new Audio('../misc/rick-roll.mp3')).on("canplay", function () {
+$(new Audio('./misc/rick-roll.mp3')).on("canplay", function () {
         durationRick = this.duration * 1000;
 });
 
-$(new Audio('../misc/nyan-cat.mp3')).on("canplay", function () {
+$(new Audio('./misc/nyan-cat.mp3')).on("canplay", function () {
         durationNyan = this.duration * 1000;
 });
 
 let openedWindow;
 
 function openWindow() {
-  openedWindow = window.open('../index.php');
+  openedWindow = window.open('./index.php');
 }
 
 function closeOpenedWindow() {
@@ -105,7 +105,7 @@ $('#suprise').click(function() {
   var inpObject = $('#object-input').val();
   
   if (inpName == "ASTLEY Rick") {
-    new Audio('../misc/rick-roll.mp3').play();
+    new Audio('./misc/rick-roll.mp3').play();
     $(".easter-gif").css("display","block");
     setTimeout(rickNone, durationRick);
   };
