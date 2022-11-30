@@ -1,10 +1,8 @@
 <?php
 include 'include.php';
-headerPage();
-?>
-
-<?php require_once "action/config.php"; ?>
-<?php require "admin/security.php"; ?>
+require_once "action/config.php";
+require "admin/security.php";
+headerPage(); ?>
 
 <!-- 
 Delete user
