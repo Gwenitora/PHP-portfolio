@@ -1,6 +1,13 @@
-<?php require_once "config.php"; ?>
+<?php
+include 'include.php';
+headerPage();
+?>
 
-<!-- Delete user -->
+<?php require_once "action/config.php"; ?>
+<?php require_once "admin/security.php"; ?>
+<?php require_once "admin/delete.php"; ?>
+<!-- 
+Delete user
 <div class="container">
     <div class="modal color perso-2 border-radius" id="login">
       <form action="admin/delete.php" method="post">
@@ -12,4 +19,9 @@
         </div>
       </form>
     </div>
-  </div>
+  </div> -->
+
+
+<?php
+footerPage();
+?>

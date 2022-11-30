@@ -1,6 +1,6 @@
 <?php
 include 'include.php';
-require_once "config.php";
+require_once "action/config.php";
 headerPage();
 ?>   
     <!-- Content -->
