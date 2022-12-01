@@ -19,6 +19,15 @@ if (count($card)!=1) {
 }
 $card = $card[0];
 
+$sql = "SELECT p.title, p.description , p.img_carousel, p.img_pres FROM projects as p join users as u on u.id = p.id_user where u.as_portfolio = 1 and p.id = :id";
+$dataBinded=array(
+    ':id'   => $_GET['id']
+);
+$pre = $pdo->prepare($sql);
+$pre->execute($dataBinded);
+$projects = $pre->fetch(PDO::FETCH_ASSOC);
+
+
 ?>
 
     <!-- Infos -->
@@ -34,21 +43,20 @@ $card = $card[0];
 
     <!-- Carousel -->
     <div class="carousel carousel-slider center">
-    <div class="carousel-fixed-item center">
-        <a class="btn waves-effect white grey-text darken-text-2 btn-change border-radius white-text">En savoir plus</a>
+        <div class="carousel-fixed-item center">
+            <a class="btn waves-effect white grey-text darken-text-2 btn-change border-radius white-text">En savoir plus</a>
+        </div>
+        <?php foreach($card as $user) {
+            if ($user['id'] ) { ?>
+        <div class="carousel-item white-text <?php echo "$projects['title']" ?>">
+            <div></div>
+            <h2><?php echo "$projects['title']" ?></h2>
+            <p class="white-text"><?php echo "$projects['description']" ?></p>  
+        </div>
     </div>
-    <div class="carousel-item white-text rl">
-        <div></div>
-        <h2>Rocket League</h2>
-        <p class="white-text">Ce site est une présentation du jeu Rocket League en html css, c'est aussi l'un de mes premiers site</p>  
-    </div>
-    <div class="carousel-item white-text pm">
-        <div></div>
-        <h2>PacMan</h2>
-        <p class="white-text">Jeu où l'on incarne PacMan, on a pour but de récupérer toutes les jetons sans se faire tuer.</p>
-    </div>
-    </div>
-    </div>
+<?php }
+} ?>
+
 
 <?php
 footerPage();
