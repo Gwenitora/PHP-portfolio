@@ -24,7 +24,7 @@ $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach( $projects as $project) { ?>
 
             <h1 class="center animate__animated animate__rubberBand"><?= $project["title"]?></h1>
-            <img class="responsive-img center-box border-radius animate__animated animate__bounceIn" src="<?= $project["img_description"]?>" alt="Image du site Pac Man">
+            <img class="responsive-img center-box border-radius animate__animated animate__bounceIn" src="<?= $project["img_pres"]?>" alt="Image du site Pac Man">
             <div class="row color perso-2 border-radius project-skill">
             <p class="col s12 center"><?= $project["description"]?></p>
             <div class="col s12 m4 offset-m1 center color perso-1 border-radius">
