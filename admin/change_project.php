@@ -72,6 +72,7 @@ $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
 foreach ($skills as $skill) {
 
     if (isset($_POST[$skill['title']])) {
+        $_POST[$skill['title']] = str_replace('|-|', ' ', $_POST[$skill['title']]);
         $dataBinded=array(
             ':id_project'   => $_POST['id'],
             ':id_skill'   => $skill['id']
