@@ -1,6 +1,6 @@
 <?php require_once "action/config.php"; ?><?php
 include 'include.php';
-headerPage();
+headerPage($pdo);
 
 $sql = "SELECT p.title, p.description , p.img_carousel, p.img_pres FROM projects as p join users as u on u.id = p.id_user where u.as_portfolio = 1 and p.id = :id";
 $dataBinded=array(

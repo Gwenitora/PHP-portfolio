@@ -1,7 +1,7 @@
 <?php
 include 'include.php';
 require "admin/security.php";
-headerPage(); 
+headerPage($pdo);
 
 if (!isset($_GET['admin'])) {
   $get = 'projects';

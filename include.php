@@ -1,16 +1,8 @@
 <?php
 require_once "action/config.php"; 
 
-function headerPage() {
+function headerPage($pdo) {
   unset($_SESSION['HTTP_REFERER']);
-
-  $pdo = new PDO(
-    'mysql:host=localhost;dbname=grpb5;',
-    'root',
-    'root',
-    array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
-  );
-  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
   $sql = "SELECT id, name FROM users WHERE as_portfolio=1";
   $pre = $pdo->prepare($sql);
