@@ -7,7 +7,7 @@ $pre = $pdo->prepare($sql);
 $pre->execute();
 $idUser = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-$sql = "INSERT INTO `projects`(id_user,img_carousel, img_pres, title, description) VALUES (4, 'NULL', 'NULL', 'empty','empty')";
+$sql = "INSERT INTO `projects`(id_user,img_carousel, img_pres, title, description) VALUES (:id, 'NULL', 'NULL', 'empty','empty')";
 
 $dataBinded=array(
     ':id'   => $idUser[0]['id'],

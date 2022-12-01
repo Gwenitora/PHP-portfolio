@@ -141,7 +141,7 @@ if (!isset($_GET['admin'])) {
       break;
     
     default:
-      $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users";
+      $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users WHERE as_portfolio=1";
 
       $pre = $pdo->prepare($sql);
       $pre->execute();
