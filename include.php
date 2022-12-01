@@ -3,6 +3,20 @@ require_once "action/config.php";
 
 function headerPage() {
   unset($_SESSION['HTTP_REFERER']);
+
+  $pdo = new PDO(
+    'mysql:host=localhost;dbname=grpb5;',
+    'root',
+    'root',
+    array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+  );
+  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+
+  $sql = "SELECT id, name FROM users WHERE as_portfolio=1";
+  $pre = $pdo->prepare($sql);
+  $pre->execute();
+  $users = $pre->fetchAll(PDO::FETCH_ASSOC);
+
   ?>
   <!DOCTYPE html>
   
@@ -49,8 +63,10 @@ function headerPage() {
         <!-- Dropdown menu -->
 
         <ul id="dropdown-team" class="dropdown-content color perso-2">
-          <li><a href="#team" class="white-text">Team</a></li>          
+          <li><a href="#team" class="white-text">Team</a></li>
+          <?php foreach ($users as $dropUser) { ?>
             <li><a href="./identity-card.php?id=<?= $dropUser['id'] ?>" class="white-text"><?= $dropUser['name'] ?></a></li>
+          <?php } ?>
         </ul>
       </div>
     </nav>
