@@ -38,7 +38,7 @@ if (!isset($_GET['admin'])) {
           <div class="row">
             <form method="post" action="admin/change_user.php" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?= $user['id'] ?>">
-              <div class= "input-field col s3">
+              <div class= "input-field col s2">
                 <input id="name<?= $user['id'] ?>" type="text" name="name" value="<?= isset($user['name'])?$user['name']:'' ?>"></input>
                 <label for="name<?= $user['id'] ?>">NOM Prénom</label>
               </div>
@@ -60,7 +60,7 @@ if (!isset($_GET['admin'])) {
                 </select>
                 <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label> 
               </div>
-              <div class= "input-field col s3">
+              <div class= "input-field col s4">
                 <input id="img<?= $user['id'] ?>" type="file" name="img" value="<?= isset($user['img'])?$user['img']:'' ?>"></input>
               </div>
               <div class= "input-field col s1">
@@ -94,58 +94,68 @@ if (!isset($_GET['admin'])) {
       break;
     
     default:
-    $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users";
-    $pre = $pdo->prepare($sql);
-    $pre->execute();
-    $users = $pre->fetchAll(PDO::FETCH_ASSOC);
+      $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users WHERE as_portfolio=1";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $users = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach( $users as $user) {
-      
-      ?>
-        <div class="row">
-          <form method="post" action="admin/change_user.php" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?= $user['id'] ?>">
-            <div class= "input-field col s3">
-              <input id="name<?= $user['id'] ?>" type="text" name="name" value="<?= isset($user['name'])?$user['name']:'' ?>"></input>
-              <label for="name<?= $user['id'] ?>">NOM Prénom</label>
-            </div>
-            <div class= "input-field col s3">
-              <input id="email<?= $user['id'] ?>" type="email" name="email" value="<?= isset($user['email'])?$user['email']:'' ?>"></input>
-              <label for="email<?= $user['id'] ?>">Mail</label>
-            </div>
-            <div class= "input-field col s1">
-              <input id="admin<?= $user['id'] ?>" type="text" name="admin" value="<?= isset($user['admin'])?$user['admin']:'' ?>"></input>
-              <label for="admin<?= $user['id'] ?>">Admin ?</label>
-            </div>
-            <div class= "input-field col s1">
-              <input id="as_portfolio<?= $user['id'] ?>" type="text" name="as_portfolio" value="<?= isset($user['as_portfolio'])?$user['as_portfolio']:'' ?>"></input>
-              <label for="as_portfolio<?= $user['id'] ?>">Porfolio ?</label>
-            </div>
-            <div class= "input-field col s3">
-              <input id="img<?= $user['id'] ?>" type="file" name="img" value="<?= isset($user['img'])?$user['img']:'' ?>"></input>
-            </div>
-            <div class= "input-field col s1">
-              <img class="adminImg" src="<?= isset($user['img'])?$user['img']:'' ?>">
-            </div>
-            <div class= "input-field col s12">
-              <textarea id="description<?= $user['id'] ?>" class="materialize-textarea" name="description"><?= isset($user['description'])?$user['description']:'' ?></textarea>
-              <label for="description<?= $user['id'] ?>">Description</label>
-            </div>
-            <button class="btn waves-effect waves-light linkedin col">
-              <input type="submit" value="Sauvegarder">
-              <i class="material-icons right">save</i>
-            </button>
-          </form>
-          <form method="post" action="admin/delete_user.php" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?= $user['id'] ?>">
-            <button class="btn waves-effect waves-light linkedin col delete-admin">
-              <input type="submit" value="Delete">
-              <i class="material-icons right">delete</i>
-            </button>
-          </form>
-        </div>
-      <?php
-    }
+      $sql = "SELECT p.id, u.name, p.description, p.img_carousel, p.img_pres, p.title, p.id_user FROM projects as p join users as u on u.id = p.id_user where u.as_portfolio = 1";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $projects = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+      foreach( $projects as $project) {
+        
+        ?>
+          <div class="row">
+            <form method="post" action="admin/change_project.php" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?= $project['id'] ?>">
+              <input type="hidden" name="id_user" value="<?= $project['id_user'] ?>">
+              <div class= "input-field col s6">
+                <input id="projetTitle<?= $project['id'] ?>" type="text" name="title" value="<?= isset($project['title'])?$project['title']:'' ?>"></input>
+                <label for="projetTitle<?= $project['id'] ?>">Titre projet</label>
+              </div>
+              <div class= "input-field col s6">
+                <select id="id_user<?= $project['id_user'] ?>" name="id_user">
+                  <?php foreach ($users as $user) { ?>
+                    <option class="white-text" value="<?= $user['id']?>" <?= $project['id_user']==$user['id']?'selected':'' ?>><?= $user['name']?></option>
+                  <?php } ?>
+              </div>
+              
+              <div class= "input-field col s5">
+                <input id="projetImgCarousel<?= $project['id'] ?>" type="file" name="img_caraousel" value="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>"></input>
+              </div>
+              <div class= "input-field col s1">
+                <img class="adminImg" src="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>">
+              </div>
+
+              <div class= "input-field col s5">
+                <input id="projetImgPres<?= $project['id'] ?>" type="file" name="img_pres" value="<?= isset($project['imp_pres'])?$project['img_pres']:'' ?>"></input>
+              </div>
+              <div class= "input-field col s1">
+                <img class="adminImg" src="<?= isset($project['imp_pres'])?$project['imp_pres']:'' ?>">
+              </div>
+
+              <div class= "input-field col s12">
+                <textarea id="projectDescription<?= $project['id'] ?>" class="materialize-textarea" name="description"><?= isset($project['description'])?$project['description']:'' ?></textarea>
+                <label for="projectDescription<?= $project['id'] ?>">Description</label>
+              </div>
+              
+              <button class="btn waves-effect waves-light linkedin col">
+                <input type="submit" value="Sauvegarder">
+                <i class="material-icons right">save</i>
+              </button>
+            </form>
+            <form method="post" action="admin/delete_project.php" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?= $project['id'] ?>">
+              <button class="btn waves-effect waves-light linkedin col delete-admin">
+                <input type="submit" value="Delete">
+                <i class="material-icons right">delete</i>
+              </button>
+            </form>
+          </div>
+        <?php
+      }
       
       break;
   }
