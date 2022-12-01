@@ -187,32 +187,30 @@ if (!isset($_GET['admin'])) {
               </div>
               <div class= "input-field col s4"> 
 
-              <div class="input-field col s12">
-                <select multiple>
-                  <option value="" disabled selected>Choississez vos skills</option>
-                  <optgroup class = "white-text" label="skills">
-
-                    <?php $sql = "SELECT skills.title, skills.icone, id FROM projects 
-                    JOIN skills on skills_projects.id_projects = projects.id 
-                    JOIN skills_projects on skills.id = skills_projects.id_skills 
-                    WHERE skills.soft = 0";
-                    $pre = $pdo->prepare($sql);
-                    $pre->execute();
-                    $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
-
-                    foreach($skills as $skill) {?>
-                      <option class="white-text" value="<?= $skill['id']?>" <?= $skill['id']==$skill['id']?'selected':'' ?>><?=$skill["title"]?><i class="material-icons right"><?= isset($skill['icone'])?$skill['icone']:'' ?></i></option>
-                      <?php}?>
-                  </optgroup>
-                  <optgroup class = "white-text" label="soft skills">
-
-                    <option value="3">Option 3</option>
-
-                  </optgroup>
-                </select>
-                <label>Skills</label>
+                <div class="input-field col s12">
+                  <select multiple>
+                    <optgroup label="skills">
+                      <?php $sql = "SELECT  * FROM skills WHERE soft = 0";
+                      $pre = $pdo->prepare($sql);
+                      $pre->execute();
+                      $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
+                      foreach($skills as $skill) {?>
+                        <option value="<?= $skill['id']?>"> <?=$skill["title"]?></option>
+                        <?php } ?>
+                    </optgroup>
+                    <optgroup label="soft skills">
+                    <?php $sql = "SELECT  * FROM skills WHERE soft = 1";
+                      $pre = $pdo->prepare($sql);
+                      $pre->execute();
+                      $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
+                      foreach($softSkills as $softSkill) {?>
+                        <option value="<?= $softSkill['id']?>"> <?=$softSkill["title"]?></option>
+                        <?php } ?>
+                    </optgroup>
+                  </select>
+                  <label>Skills</label>
+                </div>
               </div>
-            </div>
 
               <div class= "input-field col s12">
                 <textarea id="projectDescription<?= $project['id'] ?>" class="materialize-textarea" name="description"><?= isset($project['description'])?$project['description']:'' ?></textarea>

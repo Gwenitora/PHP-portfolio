@@ -328,5 +328,5 @@ img.robot {
 }
 
 .dropdown-content li span {
-  color : white;
+  color : white !important;
 }
