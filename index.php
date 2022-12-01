@@ -47,7 +47,7 @@ $a = count($data);
                     $projects = $pre->fetchAll(PDO::FETCH_ASSOC);
 
                     foreach($projects as $project) { ?>
-                      <a href="./identity-card.php?id=<?= $project['id'] ?>"><?= $project['title'] ?></a>
+                      <a href="./project.php?id=<?= $project['id'] ?>"><?= $project['title'] ?></a>
                       <?php } ?>
                     </div>
                   </div>
