@@ -40,9 +40,9 @@ $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fa-brands fa-connectdevelop project-icons"></i>
                 <h2 class="animate__animated animate__bounceInRight">Soft Skills</h2>
                 <ul>
-                    <li class="animate__animated animate__bounceInRight"><i class="fa-solid fa-gears"></i> JAM</li>
-                    <li class="animate__animated animate__bounceInRight"><i class="fa-solid fa-user"></i> Travail en solo </li>
-                    <li class="animate__animated animate__bounceInRight"><i class="fa-solid fa-ghost"></i> Création d'un jeu de A-Z</li>
+                    <?php foreach( $softSkills as $softSkill) { ?>
+                        <li class="animate__animated animate__bounceInRight"><i class="fa-solid fa-gears"></i><?= $sofSkill["title"]?></li>
+                    <?php } ?>
                 </ul>
             </div>
             </div>
