@@ -52,17 +52,29 @@ if (isset($_POST['description'])) {
     $pre->execute($dataBinded);
 }
 
+$dataBinded=array(
+    ':id'   => $_POST['id'],
+);
+$sql = "DELETE FROM `skills_projects` WHERE id_project :id";
+$pre = $pdo->prepare($sql);
+$pre->execute();
 
-if (isset($_POST['skills_projects'])) {
-    $dataBinded=array(
-        ':id'   => $_POST['id'],
-    );
-    $sql = "DELETE FROM `skills_projects` WHERE id_project :id";
-    $pre = $pdo->prepare($sql);
-    $pre->execute();
+$sql = "SELECT  * FROM skills";
+$pre = $pdo->prepare($sql);
+$pre->execute();
+$skills = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($skills as $skill) {
+    if (isset($_POST[$skill['id']])) {
+        $dataBinded=array(
+            ':id_project'   => $_POST['id'],
+            ':id_skill'   => $_POST[$skill['id']]
+        );
+        $sql = "INSERT INTO `skills_projects`(`id_projects`, `id_skills`) VALUES (:id_project,:id_skill)";
+        $pre = $pdo->prepare($sql);
+        $pre->execute($dataBinded);
+    }
 }
-
-
 
 
 
