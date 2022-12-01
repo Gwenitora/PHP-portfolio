@@ -20,11 +20,6 @@ $pre = $pdo->prepare($sql);
 $pre->execute();
 $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-$sql = "SELECT  * FROM skills_projects as sp JOIN skills as s on sp.id_skills = s.id ";
-$pre = $pdo->prepare($sql);
-$pre->execute();
-$lien = $pre->fetchAll(PDO::FETCH_ASSOC);
-
 if (!isset($_GET['id'])) {
     require_once "go-back.php";
 }
@@ -54,18 +49,38 @@ $url = $url[0];
             <i class="fa-solid fa-code project-icons"></i>
             <h2 class="animate__animated animate__bounceInLeft">Skills</h2>
             <ul>
-            <?php foreach( $skills as $skill) { ?>
+            <?php foreach( $skills as $skill) {
+                $sql = "SELECT * FROM skills_projects WHERE id_skills=:id_skills AND id_projects=:id";
+                $dataBinded=array(
+                    ':id'   => $_GET['id'],
+                    ':id_skills'   => $skill['id']
+                );
+                $pre = $pdo->prepare($sql);
+                $pre->execute($dataBinded);
+                $lien = $pre->fetchAll(PDO::FETCH_ASSOC);
+                if (count($lien)>0) {
+                ?>
                 <li class="animate__animated animate__bounceInLeft"><i class="<?= $skill["icone"]?>"></i> <?= $skill["title"]?></li>
-                <?php } ?>
+                <?php }} ?>
             </ul>
         </div>
         <div class="col s12 m4 offset-m2 center color perso-1 border-radius">
             <i class="fa-brands fa-connectdevelop project-icons"></i>
             <h2 class="animate__animated animate__bounceInRight">Soft Skills</h2>
             <ul>
-                <?php foreach( $softSkills as $softSkill) { ?>
+                <?php foreach( $softSkills as $softSkill) {
+                $sql = "SELECT * FROM skills_projects WHERE id_skills=:id_skills AND id_projects=:id";
+                $dataBinded=array(
+                    ':id'   => $_GET['id'],
+                    ':id_skills'   => $softSkill['id']
+                );
+                $pre = $pdo->prepare($sql);
+                $pre->execute($dataBinded);
+                $lien = $pre->fetchAll(PDO::FETCH_ASSOC);
+                if (count($lien)>0) {
+                ?>
                     <li class="animate__animated animate__bounceInRight"><i class="<?= $softSkill["icone"]?>"></i> <?= $softSkill["title"]?></li>
-                <?php } ?>
+                <?php }} ?>
             </ul>
         </div>
         </div>
