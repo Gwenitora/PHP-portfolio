@@ -23,7 +23,7 @@ $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
 $sql = "SELECT  * FROM skills_projects as sp JOIN skills as s on sp.id_skills = s.id ";
 $pre = $pdo->prepare($sql);
 $pre->execute();
-$softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
+$lien = $pre->fetchAll(PDO::FETCH_ASSOC);
 
 if (!isset($_GET['id'])) {
     require_once "go-back.php";
