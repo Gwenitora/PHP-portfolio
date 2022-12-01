@@ -168,16 +168,21 @@ if (!isset($_GET['admin'])) {
                   <?php foreach ($users as $user) { ?>
                     <option class="white-text" value="<?= $user['id']?>" <?= $project['id_user']==$user['id']?'selected':'' ?>><?= $user['name']?></option>
                   <?php } ?>
+                </select>
+                <label for="id_user<?= $project['id'] ?>">Proriétaire</label>
               </div>
               
               <div class= "input-field col s5">
-                <input id="projetImgCarousel<?= $project['id'] ?>" type="file" name="img_caraousel" value="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>"></input>
+                <p>Image carousel</p>   
+                <input id="projetImgCarousel<?= $project['id'] ?>" type="file" name="img_caraousel" value="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>"></input> 
               </div>
+
               <div class= "input-field col s1">
                 <img class="adminImg" src="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>">
               </div>
 
               <div class= "input-field col s5">
+                <p>Image présentation<p>  
                 <input id="projetImgPres<?= $project['id'] ?>" type="file" name="img_pres" value="<?= isset($project['imp_pres'])?$project['img_pres']:'' ?>"></input>
               </div>
               <div class= "input-field col s1">
@@ -188,7 +193,6 @@ if (!isset($_GET['admin'])) {
                 <textarea id="projectDescription<?= $project['id'] ?>" class="materialize-textarea" name="description"><?= isset($project['description'])?$project['description']:'' ?></textarea>
                 <label for="projectDescription<?= $project['id'] ?>">Description</label>
               </div>
-
               <button class="btn waves-effect waves-light linkedin col">
                 <input type="submit" value="Sauvegarder">
                 <i class="material-icons right">save</i>
@@ -203,9 +207,15 @@ if (!isset($_GET['admin'])) {
             </form>
           </div>
         <?php
-      }
+      }?>
+      <form method="post" action="admin/create_project.php" enctype="multipart/form-data">
+        <button class="btn waves-effect waves-light col delete-admin">
+          <input type="submit" value="Créer un nouveau projet">
+          <i class="material-icons right">add</i>
+        </button>
+      </form>
       
-      break;
+      <?php break;
   }
   ?>
 </div>
