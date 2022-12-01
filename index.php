@@ -1,6 +1,6 @@
 <?php
 include 'include.php';
-headerPage();
+headerPage($pdo);
 ?>
 <?php
 $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users WHERE as_portfolio = 1 " ; 
