@@ -2,7 +2,7 @@
 include 'include.php';
 headerPage();
 
-$sql = "SELECT * FROM projects as p join users as u on u.id = p.id_user where u.as_portfolio = 1 and p.id = :id";
+$sql = "SELECT p.title, p.description , p.img_carousel, p.img_pres FROM projects as p join users as u on u.id = p.id_user where u.as_portfolio = 1 and p.id = :id";
 $dataBinded=array(
     ':id'   => $_GET['id']
 );
@@ -44,7 +44,7 @@ $url = $url[0];
         <h1 class="center animate__animated animate__rubberBand"><?= $projects["title"]?></h1>
         <img class="responsive-img center-box border-radius animate__animated animate__bounceIn" src="<?= $projects["img_pres"]?>" alt="Image du site Pac Man">
         <div class="row color perso-2 border-radius project-skill">
-        <p class="col s12 center"><?= $projects["description"]?></p>
+        <p class="col s12 center"><?= $projects["description"] ?></p>
         <div class="col s12 m4 offset-m1 center color perso-1 border-radius">
             <i class="fa-solid fa-code project-icons"></i>
             <h2 class="animate__animated animate__bounceInLeft">Skills</h2>
