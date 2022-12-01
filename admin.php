@@ -195,7 +195,7 @@ if (!isset($_GET['admin'])) {
                       $pre->execute();
                       $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
                       foreach($skills as $skill) {?>
-                        <option value="<?= $skill['id']?>"> <?=$skill["title"]?></option>
+                        <option name="<?= $skill['id']?>" value="<?= $skill['id']?>"> <?=$skill["title"]?></option>
                         <?php } ?>
                     </optgroup>
                     <optgroup label="soft skills">
@@ -204,7 +204,7 @@ if (!isset($_GET['admin'])) {
                       $pre->execute();
                       $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
                       foreach($softSkills as $softSkill) {?>
-                        <option value="<?= $softSkill['id']?>"> <?=$softSkill["title"]?></option>
+                        <option name="<?= $softSkill['id']?>" value="<?= $softSkill['id']?>"> <?=$softSkill["title"]?></option>
                         <?php } ?>
                     </optgroup>
                   </select>

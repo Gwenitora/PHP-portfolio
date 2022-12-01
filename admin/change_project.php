@@ -52,6 +52,21 @@ if (isset($_POST['description'])) {
     $pre->execute($dataBinded);
 }
 
+
+if (isset($_POST['skills_projects'])) {
+    $dataBinded=array(
+        ':id'   => $_POST['id'],
+    );
+    $sql = "DELETE FROM `skills_projects` WHERE id_project :id";
+    $pre = $pdo->prepare($sql);
+    $pre->execute();
+}
+
+
+
+
+
+
 $_SESSION['toast'][] = [
     'text' => 'Projet sauvgardé' ,
     'classes' => $_SESSION["toastConfig"]["greenToast"]
