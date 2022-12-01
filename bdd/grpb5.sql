@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 01 Décembre 2022 à 19:36
+-- Généré le :  Jeu 01 Décembre 2022 à 19:59
 -- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -43,9 +43,9 @@ CREATE TABLE `projects` (
 
 INSERT INTO `projects` (`id`, `id_user`, `img_carousel`, `img_pres`, `title`, `description`) VALUES
 (1, 4, 'upload/pacman-01.jpg', 'upload/pacman-02.jpg', 'Projet Pac Man', 'Ce projet était un travail en solo, où l\'objectif était de créer un jeu vidéo en 2D en LUA à partir de l\'interpréteur TIC-80, en moins de 2 jours.'),
-(2, 4, 'upload/pacman-01.jpg', 'upload/pacman-02.jpg', 'Rocket League', 'Ce projet était un travail en binôme, où l\'objectif était de créer un site en html & css pour présenter son jeu préférer.'),
-(3, 5, 'upload/pacman-01.jpg', 'upload/pacman-02.jpg', 'Gang Beast', 'Ce projet était un travail en binôme, où l\'objectif était de créer un site en html & css pour présenter sont jeu préférer.'),
-(4, 5, 'upload/pacman-01.jpg', 'upload/pacman-02.jpg', 'A_Mazing', 'Ce projet était un projet personel. L\'objectif était de faire un jeu multijoueurs asyncrone sans pouvoir relier les appareils.');
+(2, 4, 'upload/rocket-league-01.jpg', 'upload/rocket-league-02.jpg', 'Rocket League', 'Ce projet était un travail en binôme, où l\'objectif était de créer un site en html & css pour présenter son jeu préférer.'),
+(3, 5, 'upload/gang-beasts-01.jpg', 'upload/gang-beasts-02.jpg', 'Gang Beast', 'Ce projet était un travail en binôme, où l\'objectif était de créer un site en html & css pour présenter sont jeu préférer.'),
+(4, 5, 'upload/a_mazing-01.jpg', 'upload/a_mazing-02.jpg', 'A_Mazing', 'Ce projet était un projet personel. L\'objectif était de faire un jeu multijoueurs asyncrone sans pouvoir relier les appareils.');
 
 -- --------------------------------------------------------
 
