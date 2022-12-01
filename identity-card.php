@@ -32,7 +32,7 @@ $projects = $pre->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Infos -->
     <div class="container">
-        <div class="row">
+        <div class="row padding-info">
             <img class="col s12 m5 border-radius responsive-img animateanimated animatebounceInLeft" src="<?= $card['img'] ?>" alt="Photo de <?= $card['name'] ?>">
             <div class="col s12 l6 offset-l1 m7">
                 <h1 class="center animateanimated animaterubberBand"><?= $card['name'] ?></h1>

@@ -330,3 +330,9 @@ img.robot {
 .dropdown-content li span {
   color : white !important;
 }
+
+/*----- Identity card -----*/
+
+.row.padding-info {
+  padding: 15px;
+}
