@@ -1,7 +1,7 @@
 <?php
 require_once "../action/config.php";
 require_once "security.php";
-// require_once "upload_file.php";
+require_once "upload_file.php";
 
 if (isset($_POST['id_user'])) {
     $dataBinded=array(

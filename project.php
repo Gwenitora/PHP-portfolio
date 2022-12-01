@@ -20,6 +20,10 @@ $pre = $pdo->prepare($sql);
 $pre->execute();
 $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = "SELECT  * FROM skills_projects as sp JOIN skills as s on sp.id_skills = s.id ";
+$pre = $pdo->prepare($sql);
+$pre->execute();
+$softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
 
 if (!isset($_GET['id'])) {
     require_once "go-back.php";
@@ -51,7 +55,7 @@ $url = $url[0];
             <h2 class="animate__animated animate__bounceInLeft">Skills</h2>
             <ul>
             <?php foreach( $skills as $skill) { ?>
-                <li class="animate__animated animate__bounceInLeft"><i class="fa-solid fa-terminal"></i> <?= $skill["title"]?></li>
+                <li class="animate__animated animate__bounceInLeft"><i class="<?= $skill["icone"]?>"></i> <?= $skill["title"]?></li>
                 <?php } ?>
             </ul>
         </div>
@@ -60,7 +64,7 @@ $url = $url[0];
             <h2 class="animate__animated animate__bounceInRight">Soft Skills</h2>
             <ul>
                 <?php foreach( $softSkills as $softSkill) { ?>
-                    <li class="animate__animated animate__bounceInRight"><i class="fa-solid fa-gears"></i><?= $sofSkill["title"]?></li>
+                    <li class="animate__animated animate__bounceInRight"><i class="<?= $softSkill["icone"]?>"></i> <?= $softSkill["title"]?></li>
                 <?php } ?>
             </ul>
         </div>
