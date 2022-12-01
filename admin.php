@@ -1,6 +1,5 @@
 <?php
 include 'include.php';
-require_once "action/config.php";
 require "admin/security.php";
 headerPage(); 
 
@@ -166,7 +165,7 @@ if (!isset($_GET['admin'])) {
               <div class= "input-field col s6">
                 <select id="id_user<?= $project['id_user'] ?>" name="id_user">
                   <?php foreach ($users as $user) { ?>
-                    <option class="white-text" value="<?= $user['id']?>" <?= $project['id_user']==$user['id']?'selected':'' ?>><?= $user['name']?></option>
+                    <option class="white-text" value="<?= $user['id']?>"<?= $project['id_user']==$user['id']?'selected':'' ?>><?= $user['name']?></option>
                   <?php } ?>
                 </select>
                 <label for="id_user<?= $project['id'] ?>">Proriétaire</label>
@@ -188,23 +187,43 @@ if (!isset($_GET['admin'])) {
               <div class= "input-field col s4"> 
 
                 <div class="input-field col s12">
-                  <select multiple>
+                  <select name="skills" multiple>
                     <optgroup label="skills">
-                      <?php $sql = "SELECT  * FROM skills WHERE soft = 0";
+                      <?php
+                      $sql = "SELECT  * FROM skills WHERE soft = 0";
                       $pre = $pdo->prepare($sql);
                       $pre->execute();
                       $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
-                      foreach($skills as $skill) {?>
-                        <option name="<?= $skill['id']?>" value="<?= $skill['id']?>"> <?=$skill["title"]?></option>
+
+                      foreach($skills as $skill) {
+                        $sql = "SELECT * FROM skills_projects WHERE id_projects=:id_projects AND id_skills=:id_skills";
+                        $dataBinded=array(
+                          ':id_projects' => $project['id'],
+                          ':id_skills' => $skill['id']
+                        );
+                        $pre = $pdo->prepare($sql);
+                        $pre->execute($dataBinded);
+                        $skillsProjects = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
+                        <option value="<?= $skill['id']?>" <?= count($skillsProjects)>0?'selected':'' ?>><?=$skill["title"]?></option>
                         <?php } ?>
                     </optgroup>
                     <optgroup label="soft skills">
-                    <?php $sql = "SELECT  * FROM skills WHERE soft = 1";
+                    <?php
+                      $sql = "SELECT  * FROM skills WHERE soft = 1";
                       $pre = $pdo->prepare($sql);
                       $pre->execute();
-                      $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
-                      foreach($softSkills as $softSkill) {?>
-                        <option name="<?= $softSkill['id']?>" value="<?= $softSkill['id']?>"> <?=$softSkill["title"]?></option>
+                      $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+                      foreach($skills as $skill) {
+                        $sql = "SELECT * FROM skills_projects WHERE id_projects=:id_projects AND id_skills=:id_skills";
+                        $dataBinded=array(
+                          ':id_projects' => $project['id'],
+                          ':id_skills' => $skill['id']
+                        );
+                        $pre = $pdo->prepare($sql);
+                        $pre->execute($dataBinded);
+                        $skillsProjects = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
+                        <option value="<?= $skill['id']?>" <?= count($skillsProjects)>0?'selected':'' ?>><?=$skill["title"]?></option>
                         <?php } ?>
                     </optgroup>
                   </select>
@@ -243,7 +262,13 @@ if (!isset($_GET['admin'])) {
   ?>
 </div>
 
-
 <?php
 footerPage();
 ?>
+<script>
+  $(document).ready(function() {
+    $(":checkbox").each(function( index ) {
+      $(this).attr('name', String($(this).parent().children("span").text()));
+    });
+  });
+</script>
