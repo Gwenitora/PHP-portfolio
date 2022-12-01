@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 01 Décembre 2022 à 19:59
+-- Généré le :  Jeu 01 Décembre 2022 à 21:26
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -145,7 +145,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `img`, `admin`, `as_portfolio`, `description`) VALUES
 (4, 'BEAUFILS Ewen', 'a3c028dee169390b8084d1b704a4b9051b6293f1', 'ewen.beaufils09@gmail.com', 'upload/ewen.jpg', 1, 1, 'Je développe depuis la première (au Lycée). Je suis aujourd\'hui dans une école de programmation dans le jeu vidéo très prestigieuse nommée Gaming Campus. J\'ai déjà eu l\'occasion de finir des projets tels qu\'un site pour présenter un jeu, ou encore, un jeu que tout le monde connait du nom de PacMan.'),
 (5, 'ACQUART--REYLANS Gwendal', 'c948a9b8609c1d868249f3b3fe666c067a6abd2f', 'gwenitora.gardu74@gmail.com', 'upload/gwendal.jpg', 1, 1, 'Développeur depuis la 5ème, je suis aujourd\'hui dans une école de programmation dans le jeu vidéo très prestigieuse. j\'ai déjà eu l\'occasion de finir des projets tels qu\'un site pour présenter un jeu, ou encore, un jeu assyncrone fonctionnant sur une calculette.'),
-(6, 'Beney Dylan', '4cf193060bc3eaf3e70a500dd001718de4770eca', 'legamerdu8971@gmail.com', NULL, 0, 0, NULL);
+(6, 'Beney Dylan', '4cf193060bc3eaf3e70a500dd001718de4770eca', 'legamerdu8971@gmail.com', 'upload/hastley-rick.gif', 0, 0, '');
 
 --
 -- Index pour les tables exportées

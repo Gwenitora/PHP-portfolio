@@ -11,7 +11,7 @@ function upload($img, $id, $place, $bdd, $pdo){
         $dataBinded=array(
             ':id'   => $id
         );
-        $sql = "SELECT " .$place. " FROM " .$bdd. " WHERE $id=:id";
+        $sql = "SELECT * FROM $bdd WHERE id=:id";
         $pre = $pdo->prepare($sql);
         $pre->execute($dataBinded);
         $imgUpload = $pre->fetch(PDO::FETCH_ASSOC);
