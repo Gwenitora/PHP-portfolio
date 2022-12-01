@@ -17,6 +17,25 @@ $pre = $pdo->prepare($sql);
 $pre->execute();
 $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
 
+
+
+if (!isset($_GET['id'])) {
+    require_once "go-back.php";
+}
+
+$sql = "SELECT *  FROM project WHERE as_portfolio = 1 AND id=:id " ; 
+$dataBinded=array(
+    ':id'   => $_GET['id']
+);
+$pre = $pdo->prepare($sql); 
+$pre->execute($dataBinded);
+$url = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+if (count($url)!=1) {
+    require_once "go-back.php";
+}
+$url = $url[0];
+
 ?>
     <!-- Content -->
     <div class="section">
