@@ -1,6 +1,6 @@
 <?php
 include 'include.php';
-headerPage();
+headerPage($pdo);
 
 if (!isset($_GET['id'])) {
     require_once "go-back.php";
