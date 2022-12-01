@@ -218,6 +218,13 @@ function footerPage() {
     <script src="https://kit.fontawesome.com/63d128608a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      function changeButton() {
+        if ($('.carousel-item.gb').hasClass('active')) {
+          $('.btn-change').prop('href', 'gang-beasts.php');
+        };
+      };
+    </script>
     <script src="./scripts/script.js"></script>
     <script>
       <?php

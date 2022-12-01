@@ -19,20 +19,6 @@ function sidenavClose(){
   $('.sidenav').sidenav('close');
 };
 
-function changeButton() {
-  if ($('.carousel-item.gb').hasClass('active')) {
-    $('.btn-change').prop('href', 'gang-beasts.php');
-  };
-  if ($('.carousel-item.am').hasClass('active')) {
-    $('.btn-change').prop('href', 'a_mazing.php');
-  };
-  if ($('.carousel-item.rl').hasClass('active')) {
-    $('.btn-change').prop('href', 'rocket-league.php');
-  };
-  if ($('.carousel-item.pm').hasClass('active')) {
-    $('.btn-change').prop('href', 'pacman.php');
-  };
-};
 setInterval(changeButton, 10);
 
 
