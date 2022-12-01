@@ -87,4 +87,4 @@ $url = $url[0];
         </div>
     </div>
     
-<?php footerPage() ?>
+<?php footerPage($pdo) ?>

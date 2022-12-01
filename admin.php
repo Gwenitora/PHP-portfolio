@@ -263,7 +263,7 @@ if (!isset($_GET['admin'])) {
 </div>
 
 <?php
-footerPage();
+footerPage($pdo);
 ?>
 <script>
   $(document).ready(function() {

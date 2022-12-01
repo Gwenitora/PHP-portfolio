@@ -63,4 +63,4 @@ $a = count($data);
   </div> 
 
 <?php
-footerPage();
+footerPage($pdo);
