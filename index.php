@@ -30,7 +30,7 @@ $a = count($data)
                       <p> <?php echo $user['description'] ?></p>
                     </div>
                     <div class="card-action">
-                      <a href="./gang-beasts.php">Gang Beasts</a>
+                      <a href="./project.php">Gang Beasts</a>
                       <a href="./a_mazing.php">A_mazing</a>
                     </div>
                   </div>
