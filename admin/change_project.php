@@ -1,7 +1,7 @@
 <?php
 require_once "../action/config.php";
 require_once "security.php";
-require_once "upload_file.php";
+// require_once "upload_file.php";
 
 if (isset($_POST['id_user'])) {
     $dataBinded=array(
@@ -53,22 +53,23 @@ if (isset($_POST['description'])) {
 }
 
 $dataBinded=array(
-    ':id'   => $_POST['id'],
+    ':id'   => $_POST['id']
 );
-$sql = "DELETE FROM `skills_projects` WHERE id_project :id";
+$sql = "DELETE FROM `skills_projects` WHERE id_projects=:id";
 $pre = $pdo->prepare($sql);
-$pre->execute();
+$pre->execute($dataBinded);
 
-$sql = "SELECT  * FROM skills";
+$sql = "SELECT * FROM skills";
 $pre = $pdo->prepare($sql);
 $pre->execute();
 $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($skills as $skill) {
-    if (isset($_POST[$skill['id']])) {
+
+    if (isset($_POST[$skill['title']])) {
         $dataBinded=array(
             ':id_project'   => $_POST['id'],
-            ':id_skill'   => $_POST[$skill['id']]
+            ':id_skill'   => $skill['id']
         );
         $sql = "INSERT INTO `skills_projects`(`id_projects`, `id_skills`) VALUES (:id_project,:id_skill)";
         $pre = $pdo->prepare($sql);
