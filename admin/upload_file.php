@@ -15,7 +15,7 @@ function upload($img, $id, $place, $bdd, $pdo){
         $pre = $pdo->prepare($sql);
         $pre->execute($dataBinded);
         $imgUpload = $pre->fetch(PDO::FETCH_ASSOC);
-        $destination = $imgUpload[$img];
+        $destination = $imgUpload[$place];
     }
     return $destination ;
 }
