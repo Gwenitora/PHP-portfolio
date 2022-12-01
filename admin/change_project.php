@@ -13,6 +13,8 @@ if (isset($_POST['id_user'])) {
     $pre->execute($dataBinded);
 }
 
+$destination = upload('img_caraousel', $_POST["id"], 'img_carousel', 'projects', $pdo);
+
 if (isset($destination)) {
     $dataBinded=array(
         ':id'   => $_POST['id'],
@@ -22,6 +24,9 @@ if (isset($destination)) {
     $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
 }
+
+$destination = upload('img_pres', $_POST["id"], 'img_pres', 'projects', $pdo);
+
 if (isset($destination)) {
     $dataBinded=array(
         ':id'   => $_POST['id'],
@@ -55,29 +60,6 @@ if (isset($_POST['description'])) {
 $dataBinded=array(
     ':id'   => $_POST['id'],
 );
-$sql = "DELETE FROM `skills_projects` WHERE id_project :id";
-$pre = $pdo->prepare($sql);
-$pre->execute();
-
-$sql = "SELECT  * FROM skills";
-$pre = $pdo->prepare($sql);
-$pre->execute();
-$skills = $pre->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($skills as $skill) {
-    if (isset($_POST[$skill['id']])) {
-        $dataBinded=array(
-            ':id_project'   => $_POST['id'],
-            ':id_skill'   => $_POST[$skill['id']]
-        );
-        $sql = "INSERT INTO `skills_projects`(`id_projects`, `id_skills`) VALUES (:id_project,:id_skill)";
-        $pre = $pdo->prepare($sql);
-        $pre->execute($dataBinded);
-    }
-}
-
-
-
 
 $_SESSION['toast'][] = [
     'text' => 'Projet sauvgardé' ,

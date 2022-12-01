@@ -3,7 +3,7 @@
 
 
 
-function upload($img, $id, $place, $bdd){
+function upload($img, $id, $place, $bdd, $pdo){
     if ($_FILES[$img]['name'] != '') {
         $destination = "upload/".$_FILES[$img]['name']; //dossier "upload"
         move_uploaded_file($_FILES[$img]['tmp_name'],"../".$destination);

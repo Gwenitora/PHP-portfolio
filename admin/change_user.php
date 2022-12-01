@@ -24,7 +24,7 @@ if (isset($_POST['email'])) {
 }
 
 
-$destination = upload('img', $_POST["id"], 'img', 'users');
+$destination = upload('img', $_POST["id"], 'img', 'users', $pdo);
 
 if (isset($destination)) {
     $dataBinded=array(

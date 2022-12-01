@@ -183,7 +183,7 @@ if (!isset($_GET['admin'])) {
                 <input id="projetImgPres<?= $project['id'] ?>" type="file" name="img_pres" value="<?= isset($project['imp_pres'])?$project['img_pres']:'' ?>"></input>
               </div>
               <div class= "input-field col s1">
-                <img class="adminImg" src="<?= isset($project['imp_pres'])?$project['imp_pres']:'' ?>">
+                <img class="adminImg" src="<?= isset($project['img_pres'])?$project['img_pres']:'' ?>">
               </div>
               <div class= "input-field col s4"> 
 
@@ -242,21 +242,6 @@ if (!isset($_GET['admin'])) {
   }
   ?>
 </div>
-
-<!-- 
-Delete user
-<div class="container">
-    <div class="modal color perso-2 border-radius" id="login">
-      <form action="admin/delete.php" method="post">
-        <div class="modal-close color perso-2 center" id="suprise">
-          <button class="btn waves-effect waves-light">
-            <span>Supprimer</span>
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div> -->
 
 
 <?php
