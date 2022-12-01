@@ -13,6 +13,8 @@ if (isset($_POST['id_user'])) {
     $pre->execute($dataBinded);
 }
 
+$destination = upload('img_caraousel', $_POST["id"], 'img_carousel', 'projects', $pdo);
+
 if (isset($destination)) {
     $dataBinded=array(
         ':id'   => $_POST['id'],
@@ -22,6 +24,9 @@ if (isset($destination)) {
     $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
 }
+
+$destination = upload('img_pres', $_POST["id"], 'img_pres', 'projects', $pdo);
+
 if (isset($destination)) {
     $dataBinded=array(
         ':id'   => $_POST['id'],
@@ -76,9 +81,6 @@ foreach ($skills as $skill) {
         $pre->execute($dataBinded);
     }
 }
-
-
-
 
 $_SESSION['toast'][] = [
     'text' => 'Projet sauvgardé' ,

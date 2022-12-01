@@ -3,6 +3,7 @@ require_once "../action/config.php";
 require_once "security.php";
 require_once "upload_file.php";
 
+
 if (isset($_POST['name'])) {
     $dataBinded=array(
         ':id'   => $_POST['id'],
@@ -21,6 +22,10 @@ if (isset($_POST['email'])) {
     $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
 }
+
+
+$destination = upload('img', $_POST["id"], 'img', 'users', $pdo);
+
 if (isset($destination)) {
     $dataBinded=array(
         ':id'   => $_POST['id'],

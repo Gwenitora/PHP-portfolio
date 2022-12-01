@@ -7,14 +7,24 @@ $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users
 $pre = $pdo->prepare($sql); 
 $pre->execute();
 $data = $pre->fetchAll(PDO::FETCH_ASSOC);
-$a = count($data)
+$a = count($data);
+
+$sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users WHERE as_portfolio = 1 " ; 
+$pre = $pdo->prepare($sql); 
+$pre->execute();
+$data = $pre->fetchAll(PDO::FETCH_ASSOC);
+$a = count($data);
+
+
+
+
 ?>
 <div class="section" id="team">
       <div class="container">
         <h1 class="center animate__animated animate__rubberBand">Team</h1>
           <div class="row">
             <?php foreach($data as $user) {
-              if($user["as_portfolio"] == 1){?>
+              if($user["as_portfolio"] == 1) { ?>
                 <!-- Team -->
 
                 <div class="col s12 m6">
@@ -30,8 +40,15 @@ $a = count($data)
                       <p> <?php echo $user['description'] ?></p>
                     </div>
                     <div class="card-action">
-                      <a href="./project.php">Gang Beasts</a>
-                      <a href="./a_mazing.php">A_mazing</a>
+                    <?php
+                    $sql = "SELECT id, title FROM projects WHERE id_user= " .$user["id"]; 
+                    $pre = $pdo->prepare($sql); 
+                    $pre->execute();
+                    $projects = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach($projects as $project) { ?>
+                      <a href="./project.php?id=<?= $project['id'] ?>"><?= $project['title'] ?></a>
+                      <?php } ?>
                     </div>
                   </div>
                 </div>
