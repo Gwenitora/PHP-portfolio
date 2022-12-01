@@ -104,7 +104,7 @@ if (!isset($_GET['admin'])) {
               </div>
               <div class= "input-field col s5">
                 <input id="icone<?= $skill['id'] ?>" type="text" name="icone" value="<?= isset($skill['icone'])?$skill['icone']:'' ?>"></input>
-                <label for="icone<?= $skill['id'] ?>">Icône <i class="material-icons right"><?= isset($skill['icone'])?$skill['icone']:'' ?></i></label>
+                <label for="icone<?= $skill['id'] ?>">Icône <i class="<?= isset($skill['icone'])?$skill['icone']:'' ?>"></i></label>
               </div>
               <div class= "input-field col s1">
                 <select id="soft<?= $skill['id'] ?>" name="soft">
