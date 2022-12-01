@@ -268,7 +268,7 @@ footerPage();
 <script>
   $(document).ready(function() {
     $(":checkbox").each(function( index ) {
-      $(this).attr('name', String($(this).parent().children("span").text()));
+      $(this).attr('name', String($(this).parent().children("span").text().replace(' ', '|-|')));
     });
   });
 </script>
