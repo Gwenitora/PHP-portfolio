@@ -59,7 +59,7 @@ if (isset($_POST['description'])) {
 }
 
 $_SESSION['toast'][] = [
-    'text' => 'Modifications sauvgardées' ,
+    'text' => 'user sauvegardée avec succès' ,
     'classes' => $_SESSION["toastConfig"]["greenToast"]
 ];
 require_once "../action/go-back.php";

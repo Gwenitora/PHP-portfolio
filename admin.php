@@ -32,7 +32,7 @@ if (!isset($_GET['admin'])) {
       $pre->execute();
       $users = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-      foreach( $users as $user) {
+      foreach($users as $user) {
         
         ?>
           <div class="row">
@@ -85,16 +85,64 @@ if (!isset($_GET['admin'])) {
           </div>
         <?php
       }
-
-
       break;
 
     case 'skills':
+      $sql = "SELECT * FROM skills";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+      foreach( $skills as $skill) {
+        
+        ?>
+          <div class="row">
+            <form method="post" action="admin/change_skill.php" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?= $skill['id'] ?>">
+              <div class= "input-field col s5">
+                <input id="title<?= $skill['id'] ?>" type="text" name="title" value="<?= isset($skill['title'])?$skill['title']:'' ?>"></input>
+                <label for="title<?= $skill['id'] ?>">Title</label>
+              </div>
+              <div class= "input-field col s5">
+                <input id="icone<?= $skill['id'] ?>" type="text" name="icone" value="<?= isset($skill['icone'])?$skill['icone']:'' ?>"></input>
+                <label for="icone<?= $skill['id'] ?>">Icône <i class="material-icons right"><?= isset($skill['icone'])?$skill['icone']:'' ?></i></label>
+              </div>
+              <div class= "input-field col s1">
+                <select id="soft<?= $skill['id'] ?>" name="soft">
+                  <option class="white-text" value="1" <?= $skill['soft']==1?'selected':'' ?>>Oui</option>
+                  <option class="white-text" value="0" <?= $skill['soft']==1?'':'selected' ?>>Non</option>
+                </select>
+                <label for="soft<?= $skill['id'] ?>">Soft ?</label> 
+              </div>
+              <button class="btn waves-effect waves-light linkedin col">
+                <input type="submit" value="Sauvegarder">
+                <i class="material-icons right">save</i>
+              </button>
+            </form>
+            <form method="post" action="admin/delete_skill.php" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?= $skill['id'] ?>">
+              <button class="btn waves-effect waves-light linkedin col delete-admin">
+                <input type="submit" value="Delete">
+                <i class="material-icons right">delete</i>
+              </button>
+            </form>
+          </div>
+        <?php
+      }
+      ?>
+      <form method="post" action="admin/create_skill.php" enctype="multipart/form-data">
+        <button class="btn waves-effect waves-light col delete-admin">
+          <input type="submit" value="Créer un nouveau skill">
+          <i class="material-icons right">add</i>
+        </button>
+      </form>
+      <?php
       
       break;
     
     default:
-      $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users WHERE as_portfolio=1";
+      $sql = "SELECT id, name, email, img, admin, as_portfolio, description FROM users";
+
       $pre = $pdo->prepare($sql);
       $pre->execute();
       $users = $pre->fetchAll(PDO::FETCH_ASSOC);
@@ -140,7 +188,7 @@ if (!isset($_GET['admin'])) {
                 <textarea id="projectDescription<?= $project['id'] ?>" class="materialize-textarea" name="description"><?= isset($project['description'])?$project['description']:'' ?></textarea>
                 <label for="projectDescription<?= $project['id'] ?>">Description</label>
               </div>
-              
+
               <button class="btn waves-effect waves-light linkedin col">
                 <input type="submit" value="Sauvegarder">
                 <i class="material-icons right">save</i>
