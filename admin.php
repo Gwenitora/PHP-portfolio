@@ -158,11 +158,11 @@ if (!isset($_GET['admin'])) {
             <form method="post" action="admin/change_project.php" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?= $project['id'] ?>">
               <input type="hidden" name="id_user" value="<?= $project['id_user'] ?>">
-              <div class= "input-field col s6">
+              <div class= "input-field col s4">
                 <input id="projetTitle<?= $project['id'] ?>" type="text" name="title" value="<?= isset($project['title'])?$project['title']:'' ?>"></input>
                 <label for="projetTitle<?= $project['id'] ?>">Titre projet</label>
               </div>
-              <div class= "input-field col s6">
+              <div class= "input-field col s4">
                 <select id="id_user<?= $project['id_user'] ?>" name="id_user">
                   <?php foreach ($users as $user) { ?>
                     <option class="white-text" value="<?= $user['id']?>"<?= $project['id_user']==$user['id']?'selected':'' ?>><?= $user['name']?></option>
@@ -170,65 +170,62 @@ if (!isset($_GET['admin'])) {
                 </select>
                 <label for="id_user<?= $project['id'] ?>">Proriétaire</label>
               </div>
-              <div class= "input-field col s3">
-                <p>Image carousel</p>   
-                <input id="projetImgCarousel<?= $project['id'] ?>" type="file" name="img_caraousel" value="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>"></input> 
+              <div class="input-field col s4">
+                <select name="skills" multiple>
+                  <optgroup label="skills">
+                    <?php
+                    $sql = "SELECT  * FROM skills WHERE soft = 0";
+                    $pre = $pdo->prepare($sql);
+                    $pre->execute();
+                    $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach($skills as $skill) {
+                      $sql = "SELECT * FROM skills_projects WHERE id_projects=:id_projects AND id_skills=:id_skills";
+                      $dataBinded=array(
+                        ':id_projects' => $project['id'],
+                        ':id_skills' => $skill['id']
+                      );
+                      $pre = $pdo->prepare($sql);
+                      $pre->execute($dataBinded);
+                      $skillsProjects = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
+                      <option value="<?= $skill['id']?>" <?= count($skillsProjects)>0?'selected':'' ?>><?=$skill["title"]?></option>
+                      <?php } ?>
+                  </optgroup>
+                  <optgroup label="soft skills">
+                  <?php
+                    $sql = "SELECT  * FROM skills WHERE soft = 1";
+                    $pre = $pdo->prepare($sql);
+                    $pre->execute();
+                    $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach($skills as $skill) {
+                      $sql = "SELECT * FROM skills_projects WHERE id_projects=:id_projects AND id_skills=:id_skills";
+                      $dataBinded=array(
+                        ':id_projects' => $project['id'],
+                        ':id_skills' => $skill['id']
+                      );
+                      $pre = $pdo->prepare($sql);
+                      $pre->execute($dataBinded);
+                      $skillsProjects = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
+                      <option value="<?= $skill['id']?>" <?= count($skillsProjects)>0?'selected':'' ?>><?=$skill["title"]?></option>
+                      <?php } ?>
+                  </optgroup>
+                </select>
+                <label>Skills</label>
               </div>
               <div class= "input-field col s1">
                 <img class="adminImg" src="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>">
               </div>
-              <div class= "input-field col s3">
-                <p>Image présentation<p>  
-                <input id="projetImgPres<?= $project['id'] ?>" type="file" name="img_pres" value="<?= isset($project['imp_pres'])?$project['img_pres']:'' ?>"></input>
+              <div class= "input-field col s5">
+                <p>Image carousel</p>   
+                <input id="projetImgCarousel<?= $project['id'] ?>" type="file" name="img_caraousel" value="<?= isset($project['img_carousel'])?$project['img_carousel']:'' ?>"></input> 
               </div>
               <div class= "input-field col s1">
                 <img class="adminImg" src="<?= isset($project['img_pres'])?$project['img_pres']:'' ?>">
               </div>
-              <div class= "input-field col s4"> 
-
-                <div class="input-field col s12">
-                  <select name="skills" multiple>
-                    <optgroup label="skills">
-                      <?php
-                      $sql = "SELECT  * FROM skills WHERE soft = 0";
-                      $pre = $pdo->prepare($sql);
-                      $pre->execute();
-                      $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
-
-                      foreach($skills as $skill) {
-                        $sql = "SELECT * FROM skills_projects WHERE id_projects=:id_projects AND id_skills=:id_skills";
-                        $dataBinded=array(
-                          ':id_projects' => $project['id'],
-                          ':id_skills' => $skill['id']
-                        );
-                        $pre = $pdo->prepare($sql);
-                        $pre->execute($dataBinded);
-                        $skillsProjects = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
-                        <option value="<?= $skill['id']?>" <?= count($skillsProjects)>0?'selected':'' ?>><?=$skill["title"]?></option>
-                        <?php } ?>
-                    </optgroup>
-                    <optgroup label="soft skills">
-                    <?php
-                      $sql = "SELECT  * FROM skills WHERE soft = 1";
-                      $pre = $pdo->prepare($sql);
-                      $pre->execute();
-                      $skills = $pre->fetchAll(PDO::FETCH_ASSOC);
-
-                      foreach($skills as $skill) {
-                        $sql = "SELECT * FROM skills_projects WHERE id_projects=:id_projects AND id_skills=:id_skills";
-                        $dataBinded=array(
-                          ':id_projects' => $project['id'],
-                          ':id_skills' => $skill['id']
-                        );
-                        $pre = $pdo->prepare($sql);
-                        $pre->execute($dataBinded);
-                        $skillsProjects = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
-                        <option value="<?= $skill['id']?>" <?= count($skillsProjects)>0?'selected':'' ?>><?=$skill["title"]?></option>
-                        <?php } ?>
-                    </optgroup>
-                  </select>
-                  <label>Skills</label>
-                </div>
+              <div class= "input-field col s5">
+                <p>Image présentation<p>  
+                <input id="projetImgPres<?= $project['id'] ?>" type="file" name="img_pres" value="<?= isset($project['imp_pres'])?$project['img_pres']:'' ?>"></input>
               </div>
 
               <div class= "input-field col s12">
