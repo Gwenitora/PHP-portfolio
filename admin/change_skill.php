@@ -30,6 +30,16 @@ if (isset($_POST['soft'])) {
     $pre->execute($dataBinded);
 }
 
+if (isset($_POST['skills'])) {
+    $dataBinded=array(
+        ':id'   => $_POST['id'],
+        ':description'   => $_POST['description']
+    );
+    $sql = "UPDATE `skills` SET description=:description WHERE id=:id";
+    $pre = $pdo->prepare($sql);
+    $pre->execute($dataBinded);
+}
+
 $_SESSION['toast'][] = [
     'text' => 'skill sauvegardée avec succès' ,
     'classes' => $_SESSION["toastConfig"]["greenToast"]
