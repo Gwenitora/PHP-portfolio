@@ -21,7 +21,6 @@ $pre->execute();
 $softSkills = $pre->fetchAll(PDO::FETCH_ASSOC);
 
 
-
 if (!isset($_GET['id'])) {
     require_once "go-back.php";
 }

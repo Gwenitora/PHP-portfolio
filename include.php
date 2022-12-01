@@ -46,11 +46,20 @@ function headerPage() {
           <?php } ?>
         </ul>
 
-        <!-- Dropdown menu -->
+        <!-- Dropdown menu -->   
+        <?php $sql = "SELECT * FROM user WHERE as_portfolio = 1"; 
+          $pre = $pdo->prepare($sql); 
+          $pre->execute();
+          $dropUsers = $pre->fetchAll(PDO::FETCH_ASSOC); 
+
+          echo "<pre>";
+          print_r($dropUsers);
+          echo "</pre>";
+           ?>  
+
         <ul id="dropdown-team" class="dropdown-content color perso-2">
-          <li><a href="#team" class="white-text">Team</a></li>
-          <li><a href="./info-gwendal.php" class="white-text">Gwendal</a></li>
-          <li><a href="./info-ewen.php" class="white-text">Ewen</a></li>
+          <li><a href="#team" class="white-text">Team</a></li>          
+            <li><a href="./identity-card.php?id=<?= $dropUser['id'] ?>" class="white-text"><?= $dropUser['name'] ?></a></li>
         </ul>
       </div>
     </nav>
